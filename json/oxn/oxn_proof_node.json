@@ -1,0 +1,30 @@
+{
+    "label": "o_",
+    "value": "L",
+    "children": {
+        "x+_": [
+            {
+                "label": "x",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "_",
+                "value": "P",
+                "children": {}
+            }
+        ],
+        "+o_": [
+            {
+                "label": "",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "o_",
+                "value": "L",
+                "children": {}
+            }
+        ]
+    }
+}

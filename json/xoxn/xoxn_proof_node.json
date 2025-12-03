@@ -1,0 +1,79 @@
+{
+    "label": "xo_",
+    "value": "N",
+    "children": {
+        "_+": [
+            {
+                "label": "_",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "",
+                "value": "P",
+                "children": {}
+            }
+        ],
+        "xx+_": [
+            {
+                "label": "xx",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "_",
+                "value": "P",
+                "children": {}
+            }
+        ],
+        "o+_": [
+            {
+                "label": "o",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "_",
+                "value": "P",
+                "children": {}
+            }
+        ],
+        "x+o_": [
+            {
+                "label": "x",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "o_",
+                "value": "L",
+                "children": {
+                    "x+_": [
+                        {
+                            "label": "x",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "_",
+                            "value": "P",
+                            "children": {}
+                        }
+                    ],
+                    "+o_": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
