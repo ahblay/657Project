@@ -2,19 +2,19 @@
     "label": "o_",
     "value": "L",
     "children": {
-        "x+_": [
-            {
-                "label": "x",
-                "value": "P",
-                "children": {}
-            },
+        "LEFT: _ + x": [
             {
                 "label": "_",
                 "value": "P",
                 "children": {}
+            },
+            {
+                "label": "x",
+                "value": "P",
+                "children": {}
             }
         ],
-        "+o_": [
+        "RIGHT:  + o_": [
             {
                 "label": "",
                 "value": "P",

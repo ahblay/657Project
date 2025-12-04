@@ -101,9 +101,6 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
     # compute outcoem class
     position = {'left': x_values, 'right': o_values}
     value = compute_value(position)
-    print(state)
-    print(position)
-    print(value)
 
     proof_node = Node(state, value)
     proof_node.left_children_x = left_children_x

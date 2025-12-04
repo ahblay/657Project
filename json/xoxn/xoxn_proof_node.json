@@ -2,43 +2,43 @@
     "label": "xo_",
     "value": "N",
     "children": {
-        "_+": [
-            {
-                "label": "_",
-                "value": "P",
-                "children": {}
-            },
+        "LEFT:  + x_": [
             {
                 "label": "",
                 "value": "P",
                 "children": {}
+            },
+            {
+                "label": "x_",
+                "value": "P",
+                "children": {}
             }
         ],
-        "xx+_": [
+        "LEFT: _ + xx": [
+            {
+                "label": "_",
+                "value": "P",
+                "children": {}
+            },
             {
                 "label": "xx",
                 "value": "P",
                 "children": {}
-            },
+            }
+        ],
+        "RIGHT: _ + o": [
             {
                 "label": "_",
                 "value": "P",
                 "children": {}
-            }
-        ],
-        "o+_": [
+            },
             {
                 "label": "o",
                 "value": "P",
                 "children": {}
-            },
-            {
-                "label": "_",
-                "value": "P",
-                "children": {}
             }
         ],
-        "x+o_": [
+        "RIGHT: x + o_": [
             {
                 "label": "x",
                 "value": "P",
@@ -48,19 +48,19 @@
                 "label": "o_",
                 "value": "L",
                 "children": {
-                    "x+_": [
-                        {
-                            "label": "x",
-                            "value": "P",
-                            "children": {}
-                        },
+                    "LEFT: _ + x": [
                         {
                             "label": "_",
                             "value": "P",
                             "children": {}
+                        },
+                        {
+                            "label": "x",
+                            "value": "P",
+                            "children": {}
                         }
                     ],
-                    "+o_": [
+                    "RIGHT:  + o_": [
                         {
                             "label": "",
                             "value": "P",

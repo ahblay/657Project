@@ -30,3 +30,5 @@ for key, values in data.items():
     result[key] = ""
 
 pp(result)
+
+print("abcde"[2:-1])

@@ -131,7 +131,7 @@ def print_set(s):
     print(sorted(result, key=len))
 
 # THIS FUNCTION IS SPECFIC TO THE GAME (xxo)^n
-def find_symmetries(prefixes, suffixes, q):
+def find_symmetries_xxo(prefixes, suffixes, q):
     patterns = list(product(prefixes, suffixes))
     result = []
     for pattern in patterns:
@@ -144,6 +144,14 @@ def find_symmetries(prefixes, suffixes, q):
         #TODO: Is this necessary?
         if (tuple(new_p), tuple(new_s)) in patterns:
             result.append([(tuple(new_p), tuple(new_s)), pattern])
+    return result
+
+# returns a formatted symmetries list that does not identify symmetries
+def empty_symmetries(prefixes, suffixes, q):
+    patterns = list(product(prefixes, suffixes))
+    result = []
+    for pattern in patterns:
+        result.append([pattern, pattern])
     return result
 
 def get_symmetries_dict(symmetries):
@@ -195,8 +203,58 @@ def add_small_positions(game_dict, small_positions):
 def create_cgs_file(pattern_list, q, filename):
     clear_file(f"/Users/abel/CGScript/{filename}")
     for pattern in pattern_list:
-        test_sequence = generate_test_sequence(pattern, q, 12)
+        test_sequence = generate_test_sequence(pattern, q, 24)
         write_to_file(test_sequence, f"/Users/abel/CGScript/{filename}")
+
+def run(pattern, p, s, name, state, moves=False):
+    q = tuple(pattern)
+    
+    if moves:
+        with open(f'json/{name}/{name}_game_dict.json', 'r') as f:
+            game_dict = json.load(f)
+    
+    else:
+        prefixes, suffixes, small = generate_patterns(p, s, q)
+        print_set(prefixes)
+        print_set(suffixes)
+        print_set(small)
+
+        if pattern == "xxo":
+            symmetries = find_symmetries_xxo(prefixes, suffixes, q)
+        else:
+            symmetries = empty_symmetries(prefixes, suffixes, q)
+
+        symmetries_dict = get_symmetries_dict(symmetries)
+        all_subgames = sorted(list(symmetries_dict.values()))
+        print(all_subgames)
+
+        game_dict = {}
+        for subgame in all_subgames:
+            children = tree.find_moves(subgame, pattern)
+            x_cleaned = tree.clean(children['x'])
+            x_simplified = tree.simplify(x_cleaned, symmetries_dict)
+            o_cleaned = tree.clean(children['o'])
+            o_simplified = tree.simplify(o_cleaned, symmetries_dict)
+
+            game_dict[subgame] = {'x': x_simplified, 'o': o_simplified}
+    
+        create_cgs_file(all_subgames, pattern, 'cmds')
+    
+    if pattern =="xxo":
+        with open('json/small_games.json', 'r') as f:
+            small_games = json.load(f)
+        game_dict = add_small_positions(game_dict, small_games)
+    
+    print("&" * 40)
+    pp(game_dict)
+    
+    with open(f'json/{name}/{name}_base_cases.json', 'r') as f:
+        base_cases = json.load(f)
+
+    proof_node = evaluate(state, game_dict, base_cases, 0)
+
+    with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
+        json.dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
 
 def main():
     main_pattern = 'xxo'
@@ -207,7 +265,7 @@ def main():
     print_set(suffixes)
     print_set(small)
 
-    symmetries = find_symmetries(prefixes, suffixes, q)
+    symmetries = find_symmetries_xxo(prefixes, suffixes, q)
     symmetries_dict = get_symmetries_dict(symmetries)
     all_patterns = sorted(list(symmetries_dict.values()))
 
@@ -265,7 +323,12 @@ def main():
     
 
 if __name__ == "__main__":
-    main()
+    state = "o_"
+    pattern = "x"
+    p = {("o",)}
+    s = {()}
+    name = "oxn"
+    run(pattern, p, s, name, state, False)
 
 # xo xxo xxo xxo x
 

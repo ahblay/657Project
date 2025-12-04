@@ -3,19 +3,25 @@ from pprint import pp
 
 def find_moves(position, q):
     children = {"x": set(), "o": set()}
+    left_index = position.index('_')
+    right_index = left_index - len(position) + 1
+    print(f"\nleft index : {left_index}")
+    print(f"right index: {right_index}")
     position = position.replace('_', q*4)
     for i, piece in enumerate(position):
         label = list(position)
         label[i] = piece.upper()
-        #print(''.join(label))
+        print(''.join(label))
 
-        #left_move, right_move = make_move(position, i)
-        #print(f"left move: {left_move}")
-        #print(f"right move: {right_move}")
+        left_move, right_move = make_move(position, i)
+        print(f"left move: {left_move}")
+        print(f"right move: {right_move}")
 
         for move in make_move(position, i):
             if move:
-                simplified_position = sorted([reduce(move[0], q), reduce(move[1], q)])
+                simplified_position = sorted([
+                    reduce(move[0], q, left_index, left_index+len(q)*4), 
+                    reduce(move[1], q, right_index-len(q)*4, right_index)])
                 #print(simplified_position)
                 children[piece].add(tuple(simplified_position))
     return children
@@ -52,22 +58,36 @@ def simplify(children, symmetry_dict):
         result.add(tuple(new_child))
     return result
 
-def reduce(s, term):
+# TODO: there's a problem when q is contained within a prefix or suffix
+def reduce(s, term, lb, ub):
     """Takes a string s and a term and removes the first occurrence of (term)^n for n > 0."""
+    lowerbound = lb #if (lb is None or lb >= 0) else len(s) + lb
+    upperbound = ub #if (ub is None or ub >= 0) else len(s) + ub
+    if upperbound == 0: upperbound = len(s)
+    
     # TODO: catching the case where we try to simplify the position q?
     if not s or s == term:
         return s
+    print(f"\nlower bound: {lowerbound}")
+    print(f"upper bound: {upperbound}")
+    substring = s[lowerbound: upperbound]
+    print(f"s: {s}")
+    print(f"substring: {substring}")
+    print(f"{s[:lowerbound]} + {substring} + {s[upperbound:]}")
     # defines the pattern to match as a repeated occurrence of term
     pattern = f"({re.escape(term)})+"
     # finds the first instance of pattern in s
-    match = re.search(pattern, s)
+    match = re.search(pattern, substring)
     if match:
         # all characters in s before the matched string
-        prefix = s[:match.start()]
+        prefix = s[:lowerbound] + substring[:match.start()]
+        print(f"prefix: {prefix}")
         # all characters in s after the matched string
-        suffix = s[match.end():]
+        suffix = substring[match.end():] + s[upperbound:]
+        print(f"suffix: {suffix}")
         return f"{prefix}_{suffix}"
     else:
+        print(f"no removal: {s}")
         return s
     
 def make_move(pattern, index):
@@ -99,7 +119,7 @@ def make_move(pattern, index):
     return [move_left, move_right]
 
 def main():
-    children = find_moves('x_x', 'xxo')
+    children = find_moves('xoo_', 'x')
     pp(children)
     pp(clean(children['o']))
 
