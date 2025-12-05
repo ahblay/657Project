@@ -2,18 +2,6 @@
     "label": "xo_",
     "value": "N",
     "children": {
-        "LEFT:  + x_": [
-            {
-                "label": "",
-                "value": "P",
-                "children": {}
-            },
-            {
-                "label": "x_",
-                "value": "P",
-                "children": {}
-            }
-        ],
         "LEFT: _ + xx": [
             {
                 "label": "_",
@@ -22,6 +10,18 @@
             },
             {
                 "label": "xx",
+                "value": "P",
+                "children": {}
+            }
+        ],
+        "LEFT:  + x_": [
+            {
+                "label": "",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "x_",
                 "value": "P",
                 "children": {}
             }

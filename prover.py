@@ -2,6 +2,7 @@ from pprint import pp
 from collections import defaultdict
 from json import dumps, dump
 from node import Node
+from itertools import product
 
 # TODO: start by simply traversing all game patterns and stopping when each has been seen twice
 
@@ -99,8 +100,21 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
         right_children_o.append(child2)
 
     # compute outcoem class
-    position = {'left': x_values, 'right': o_values}
-    value = compute_value(position)
+    values = []
+    #print(f"o_vals: {o_values}")
+    #print(f"x_vals: {x_values}")
+    for expanded_x_values in expand_outcomes(x_values):
+        for expanded_o_values in expand_outcomes(o_values):
+            position = {'left': expanded_x_values, 'right': expanded_o_values}
+            value = compute_value(position)
+            values.append(value)
+    #print(values)
+
+    # temporary for testing
+    if len(set(values)) == 1:
+        value = values[0]
+    else:
+        value = "U"
 
     proof_node = Node(state, value)
     proof_node.left_children_x = left_children_x
@@ -113,6 +127,10 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
     path_visited.remove(state)
 
     return proof_node
+
+def expand_outcomes(outcome_list):
+    normalized_list = [outcome if type(outcome) == list else [outcome] for outcome in outcome_list]
+    return [list(outcome) for outcome in product(*normalized_list)]
 
 def compute_value(position):
     if "L" in position["left"] or "P" in position["left"]:
@@ -144,9 +162,9 @@ def compute_value(position):
 # best outcome depends on player to move
 def best_outcome(a, b, player):
     if player == "x":
-        order = ["L", "P", "N", "R", "U", ""]
+        order = ["L", "P", "U", "N", "R", ""]
     else:
-        order = ["R", "P", "N", "L", "U", ""]
+        order = ["R", "P", "U", "N", "L", ""]
     if order.index(a) < order.index(b):
         return a
     else:
@@ -156,6 +174,10 @@ def best_outcome(a, b, player):
 def outcome_add(a, b):    
     summands = sorted([a, b])
     #print(summands)
+    if summands == ["L", "N"]:
+        return summands
+    if summands == ["N", "R"]:
+        return summands
     if summands[0] == "":
         return summands[1]
     if summands[0] == "P":

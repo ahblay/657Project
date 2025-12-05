@@ -1,6 +1,6 @@
 {
     "label": "xoo_",
-    "value": "U",
+    "value": "P",
     "children": {
         "LEFT:  + xo_": [
             {
@@ -32,18 +32,6 @@
                         },
                         {
                             "label": "xx",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: _ + o": [
-                        {
-                            "label": "_",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "o",
                             "value": "P",
                             "children": {}
                         }
@@ -84,6 +72,18 @@
                                 ]
                             }
                         }
+                    ],
+                    "RIGHT: _ + o": [
+                        {
+                            "label": "_",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        }
                     ]
                 }
             }
@@ -100,18 +100,6 @@
                 "children": {}
             }
         ],
-        "RIGHT: o_ + xo": [
-            {
-                "label": "o_",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "xo",
-                "value": "N",
-                "children": {}
-            }
-        ],
         "RIGHT: o + o_": [
             {
                 "label": "o",
@@ -121,6 +109,18 @@
             {
                 "label": "o_",
                 "value": "L",
+                "children": {}
+            }
+        ],
+        "RIGHT: o_ + xo": [
+            {
+                "label": "o_",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "xo",
+                "value": "N",
                 "children": {}
             }
         ]

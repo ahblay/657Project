@@ -203,7 +203,7 @@ def add_small_positions(game_dict, small_positions):
 def create_cgs_file(pattern_list, q, filename):
     clear_file(f"/Users/abel/CGScript/{filename}")
     for pattern in pattern_list:
-        test_sequence = generate_test_sequence(pattern, q, 24)
+        test_sequence = generate_test_sequence(pattern, q, 12)
         write_to_file(test_sequence, f"/Users/abel/CGScript/{filename}")
 
 def run(pattern, p, s, name, state, moves=False):
@@ -323,14 +323,9 @@ def main():
     
 
 if __name__ == "__main__":
-    state = "o_"
-    pattern = "x"
-    p = {("o",)}
+    state = "_"
+    pattern = "xo"
+    p = {()}
     s = {()}
-    name = "oxn"
+    name = "xo"
     run(pattern, p, s, name, state, False)
-
-# xo xxo xxo xxo x
-
-# xo xxo x.x xxo x
-# xo xxx .xo xxo x

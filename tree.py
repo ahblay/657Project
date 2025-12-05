@@ -5,17 +5,17 @@ def find_moves(position, q):
     children = {"x": set(), "o": set()}
     left_index = position.index('_')
     right_index = left_index - len(position) + 1
-    print(f"\nleft index : {left_index}")
-    print(f"right index: {right_index}")
+    #print(f"\nleft index : {left_index}")
+    #print(f"right index: {right_index}")
     position = position.replace('_', q*4)
     for i, piece in enumerate(position):
         label = list(position)
         label[i] = piece.upper()
-        print(''.join(label))
+        #print(''.join(label))
 
         left_move, right_move = make_move(position, i)
-        print(f"left move: {left_move}")
-        print(f"right move: {right_move}")
+        #print(f"left move: {left_move}")
+        #print(f"right move: {right_move}")
 
         for move in make_move(position, i):
             if move:
@@ -68,12 +68,12 @@ def reduce(s, term, lb, ub):
     # TODO: catching the case where we try to simplify the position q?
     if not s or s == term:
         return s
-    print(f"\nlower bound: {lowerbound}")
-    print(f"upper bound: {upperbound}")
+    #print(f"\nlower bound: {lowerbound}")
+    #print(f"upper bound: {upperbound}")
     substring = s[lowerbound: upperbound]
-    print(f"s: {s}")
-    print(f"substring: {substring}")
-    print(f"{s[:lowerbound]} + {substring} + {s[upperbound:]}")
+    #print(f"s: {s}")
+    #print(f"substring: {substring}")
+    #print(f"{s[:lowerbound]} + {substring} + {s[upperbound:]}")
     # defines the pattern to match as a repeated occurrence of term
     pattern = f"({re.escape(term)})+"
     # finds the first instance of pattern in s
@@ -81,13 +81,13 @@ def reduce(s, term, lb, ub):
     if match:
         # all characters in s before the matched string
         prefix = s[:lowerbound] + substring[:match.start()]
-        print(f"prefix: {prefix}")
+        #print(f"prefix: {prefix}")
         # all characters in s after the matched string
         suffix = substring[match.end():] + s[upperbound:]
-        print(f"suffix: {suffix}")
+        #print(f"suffix: {suffix}")
         return f"{prefix}_{suffix}"
     else:
-        print(f"no removal: {s}")
+        #print(f"no removal: {s}")
         return s
     
 def make_move(pattern, index):
