@@ -20,9 +20,12 @@ def simulate_move(q, x):
     '''
     result = set()
 
+    if not q:
+        return result
+
     # finds +q and -q
     for piece in x: # all pieces that could be to the left of q
-        if piece != q[0]: # if a move is possible
+        if piece != q[0] and len(piece) == 1: # if a move is possible
             result.add((piece,) + q[1:]) # capturing to the right (+q)
             result.add(q[1:]) # capturing to the left (-q)
    
@@ -46,12 +49,15 @@ def get_prefixes(prefixes, q):
     result = set()
 
     x = set() # all pieces that could be to the left of q
-    x.add(q[-1]) # q could be to the left of q
+    
     for prefix in prefixes: # any prefix could be to the left of q
         if prefix: x.add(prefix[-1]) 
         result.update(simulate_move(prefix, [])) # to avoid multiple loops, get all positions resulting from moving in prefix
         result.add(prefix)
-    result.update(simulate_move(q, list(x))) # get all positions resulting from moving in q, and between q and x
+    
+    if q:    
+        x.add(q[-1]) # q could be to the left of q
+        result.update(simulate_move(q, list(x))) # get all positions resulting from moving in q, and between q and x
     return result
 
 def get_suffixes(suffixes, q):
@@ -66,7 +72,7 @@ def get_suffixes(suffixes, q):
     result = set()
     # get all values that could contribute to q+ and q-
     y = set() # all pieces that could be to the right of q
-    y.add(q[0]) # q could be to the right of q
+    
     for suffix in suffixes: # any suffix could be to the right of q
         if suffix: y.add(suffix[0])
         # suffixes resulting from moving in a suffix are equivalent to prefixes resulting from moving in reversed suffix
@@ -74,12 +80,23 @@ def get_suffixes(suffixes, q):
         # reverse results back
         result.update([s[::-1] for s in moves_in_suffix_reversed])
         result.add(suffix)
-    # simulating move in suffix is same as simulating move in reversed prefix and reversing the result
-    suffixes = simulate_move(q[::-1], list(y))
-    result.update([suffix[::-1] for suffix in suffixes])
+   
+    if q:
+        y.add(q[0]) # q could be to the right of q
+        # simulating move in suffix is same as simulating move in reversed prefix and reversing the result
+        suffixes = simulate_move(q[::-1], list(y))
+        result.update([suffix[::-1] for suffix in suffixes])
     return result
 
 def get_small_positions(pattern, q):
+    '''
+    Given a prefix and a repeating pattern q, find all of the small positions resulting from 
+    a move in the prefix or between the prefix and q.
+
+    :param pattern: tuple representing prefix
+    :param q: tuple representing repeating pattern
+    :returns small: set of tuples representing all small positions
+    '''
     small = set()
     if pattern and pattern[-1] != q[0]: # if pattern is non-empty and a move is possible
         small.add(pattern[:-1]) # capturing to the right
@@ -90,7 +107,17 @@ def get_small_positions(pattern, q):
             small.add(pattern[:i] + (pattern[i+1],)) # capturing to the left
     return small
 
+#TODO: This function is a bit weird. It doesn't handle the case where a small position results from part of q and a suffix or prefix
 def generate_small_patterns(prefixes, suffixes, q):
+    '''
+    Given a set of prefixes and suffixes and a repeating pattern q, find 
+    all small positions.
+
+    :param prefixes: set of tuples representing suffix patterns
+    :param suffixes: set of tuples representing prefix patterns
+    :param q: tuple representing repeating pattern
+    :returns small: set of tuples representing all small positions
+    '''
     small = set()
     for prefix in prefixes:
         small.update(get_small_positions(prefix, q))
@@ -132,6 +159,15 @@ def print_set(s):
 
 # THIS FUNCTION IS SPECFIC TO THE GAME (xxo)^n
 def find_symmetries_xxo(prefixes, suffixes, q):
+    '''
+    Given a list of prefixes, suffixes and repeating pattern q, find all 
+    symmetric positions.
+
+    :param prefixes: set of tuples of prefix patterns
+    :param suffixes: set of tuples of suffix patterns
+    :param q: tuple representing repeating pattern
+    :return result: list of lists of (prefix, suffix) tuples, where each internal list catalogues symmetric positions
+    '''
     patterns = list(product(prefixes, suffixes))
     result = []
     for pattern in patterns:
@@ -324,8 +360,8 @@ def main():
 
 if __name__ == "__main__":
     state = "_"
-    pattern = "xo"
+    pattern = "xxo"
     p = {()}
     s = {()}
-    name = "xo"
+    name = "xxo"
     run(pattern, p, s, name, state, False)

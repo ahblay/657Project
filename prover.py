@@ -122,6 +122,9 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
     proof_node.left_children_o = left_children_o
     proof_node.right_children_o = right_children_o
 
+    with open(f'json/all_nodes/{state}_proof_node.json', 'w', encoding='utf-8') as f:
+        dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
+
     memo[state] = value
 
     path_visited.remove(state)
