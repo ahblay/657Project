@@ -282,7 +282,7 @@ def run(pattern, p, s, name, state, moves=False):
         game_dict = add_small_positions(game_dict, small_games)
     
     print("&" * 40)
-    pp(game_dict)
+    #pp(game_dict)
     
     with open(f'json/{name}/{name}_base_cases.json', 'r') as f:
         base_cases = json.load(f)
@@ -292,73 +292,8 @@ def run(pattern, p, s, name, state, moves=False):
     with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
         json.dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
 
-def main():
-    main_pattern = 'xxo'
-    q = tuple(main_pattern)
-
-    prefixes, suffixes, small = generate_patterns(set(), set(), q)
-    print_set(prefixes)
-    print_set(suffixes)
-    print_set(small)
-
-    symmetries = find_symmetries_xxo(prefixes, suffixes, q)
-    symmetries_dict = get_symmetries_dict(symmetries)
-    all_patterns = sorted(list(symmetries_dict.values()))
-
-    print(symmetries_dict)
-    print(len(all_patterns))
-    print(all_patterns)
-
-    create_cgs_file(all_patterns, main_pattern, 'cmds')
-
-    game_dict = {}
-
-    for pattern in all_patterns:
-        children = tree.find_moves(pattern, main_pattern)
-        print("*" * 100)
-        print(f"all children of {pattern}\n")
-        pp(children)
-        print('-------CLEANED-------')
-        print('=====x=====')
-        x_cleaned = tree.clean(children['x'])
-        x_simplified = tree.simplify(x_cleaned, symmetries_dict)
-        pp(x_cleaned)
-        pp(x_simplified)
-        print('=====o=====')
-        o_cleaned = tree.clean(children['o'])
-        o_simplified = tree.simplify(o_cleaned, symmetries_dict)
-        pp(o_cleaned)
-        pp(o_simplified)
-
-        game_dict[pattern] = {'x': x_simplified, 'o': o_simplified}
-
-    with open('json/small_games.json', 'r') as f:
-        small_games = json.load(f)
-
-    with open('json/small_game_values.json', 'r') as f:
-        small_game_values = json.load(f)
-    
-    with open('json/base_cases.json', 'r') as f:
-        base_cases = json.load(f)
-
-    with open('json/xoxn/xoxn_base_cases.json', 'r') as f:
-        oxn_base_cases = json.load(f)
-
-    with open('json/xoxn/xoxn_game_dict.json', 'r') as f:
-        oxn_game_dict = json.load(f)
-    
-    new_game_dict = add_small_positions(game_dict, small_games)
-    pp(oxn_game_dict)
-    print("&" * 100)
-
-    proof_node = evaluate("xo_", oxn_game_dict, oxn_base_cases, 0)
-    print(proof_node)
-
-    with open('json/xoxn/xoxn_proof_node.json', 'w', encoding='utf-8') as f:
-        json.dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
-    
-
 if __name__ == "__main__":
+    all_states = ['_', '_o', '_x', '_xo', '_xx', '_xxx', 'o_', 'o_o', 'o_x', 'o_xo', 'oo_o', 'oo_x', 'oo_xo', 'oxo_x', 'oxo_xo', 'x_', 'x_o', 'x_x', 'x_xo', 'x_xxx', 'xo_x']
     state = "_"
     pattern = "xxo"
     p = {()}

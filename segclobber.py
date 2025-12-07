@@ -31,7 +31,18 @@ def get_outcome_class(position):
     if not left_can_win and not right_can_win:
         return "P"
 
+def compute_base_cases(pattern, q, length):
+    prefix, suffix = pattern.split("_")
+    result = []
+    for i in range(length):
+        g = f"{prefix}{q*i}{suffix}"
+        if g == "":
+            continue
+        result.append(get_outcome_class(g))
+    return result
+
 if __name__ == "__main__":
-    g = "xoxoxoxoxoxoxoxx"
-    oc = get_outcome_class(g)
-    print(oc)
+    g = "_"
+    q = "xxo"
+    result = compute_base_cases(g, q, 21)
+    print(result)

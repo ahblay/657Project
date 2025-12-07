@@ -63,7 +63,7 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
     if memo is None:
         memo = {}
     if path_visited is None:
-        path_visited = set()
+        path_visited = {}
 
     if state in memo:
         return Node(state, memo[state])
@@ -73,10 +73,13 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
 
     # apply inductive hypothesis
     if state in path_visited:
+        depth_diff = depth - path_visited[state]
+        #print(f"state: {state}")
+        #print(f"difference in depth: {depth_diff}")
         return Node(state, base_cases[state])
 
     # mark this node as visited along the current path
-    path_visited.add(state)
+    path_visited[state] = depth
 
     # recursively evaluate all options
     left_children_x = []
@@ -110,7 +113,6 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
             values.append(value)
     #print(values)
 
-    # temporary for testing
     if len(set(values)) == 1:
         value = values[0]
     else:
@@ -122,12 +124,12 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
     proof_node.left_children_o = left_children_o
     proof_node.right_children_o = right_children_o
 
-    with open(f'json/all_nodes/{state}_proof_node.json', 'w', encoding='utf-8') as f:
-        dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
+    #with open(f'json/all_nodes/{state}_proof_node.json', 'w', encoding='utf-8') as f:
+    #    dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
 
-    memo[state] = value
+    #memo[state] = value
 
-    path_visited.remove(state)
+    path_visited.pop(state)
 
     return proof_node
 

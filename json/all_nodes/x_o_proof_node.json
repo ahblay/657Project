@@ -2,988 +2,14 @@
     "label": "x_o",
     "value": "L",
     "children": {
-        "LEFT: x_xxx + ooxxoxxox": [
-            {
-                "label": "x_xxx",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "ooxxoxxox",
-                "value": "N",
-                "children": {}
-            }
-        ],
-        "LEFT: x_o + xxxox": [
-            {
-                "label": "x_o",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "xxxox",
-                "value": "N",
-                "children": {}
-            }
-        ],
-        "LEFT: x_xxx + ooxxox": [
-            {
-                "label": "x_xxx",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "ooxxox",
-                "value": "N",
-                "children": {}
-            }
-        ],
-        "LEFT: x_xxx + ooxxoxxoxxoxxoxxox": [
-            {
-                "label": "x_xxx",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "ooxxoxxoxxoxxoxxox",
-                "value": "N",
-                "children": {}
-            }
-        ],
-        "LEFT: oo_x + x_xxx": [
+        "LEFT: oo_x + xxxx": [
             {
                 "label": "oo_x",
-                "value": "N",
-                "children": {
-                    "LEFT: x_x + ooxxox": [
-                        {
-                            "label": "x_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "ooxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: ox + xoxxoxxoxxox": [
-                        {
-                            "label": "ox",
-                            "value": "N",
-                            "children": {}
-                        },
-                        {
-                            "label": "xoxxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_x + oox": [
-                        {
-                            "label": "x_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "oox",
-                            "value": "R",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_o + xoxxoxxoxxox": [
-                        {
-                            "label": "x_o",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xoxxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: ox + xox": [
-                        {
-                            "label": "ox",
-                            "value": "N",
-                            "children": {}
-                        },
-                        {
-                            "label": "xox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_o + xox": [
-                        {
-                            "label": "x_o",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: ox + xoxxoxxoxxoxxox": [
-                        {
-                            "label": "ox",
-                            "value": "N",
-                            "children": {}
-                        },
-                        {
-                            "label": "xoxxoxxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: ox + xoxxoxxox": [
-                        {
-                            "label": "ox",
-                            "value": "N",
-                            "children": {}
-                        },
-                        {
-                            "label": "xoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_o + xoxxoxxoxxoxxox": [
-                        {
-                            "label": "x_o",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xoxxoxxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_x + oo_x": [
-                        {
-                            "label": "x_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "oo_x",
-                            "value": "L",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_x + ooxxoxxoxxox": [
-                        {
-                            "label": "x_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "ooxxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: xo_x + xxxoo": [
-                        {
-                            "label": "xo_x",
-                            "value": "N",
-                            "children": {}
-                        },
-                        {
-                            "label": "xxxoo",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_o + xoxxoxxox": [
-                        {
-                            "label": "x_o",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: xo_x + xo": [
-                        {
-                            "label": "xo_x",
-                            "value": "N",
-                            "children": {}
-                        },
-                        {
-                            "label": "xo",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_x + ooxxoxxox": [
-                        {
-                            "label": "x_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "ooxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT:  + xxxoo": [
-                        {
-                            "label": "",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "xxxoo",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: oo_x + xxxox": [
-                        {
-                            "label": "oo_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT:  + xo": [
-                        {
-                            "label": "",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "xo",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT:  + x_o": [
-                        {
-                            "label": "",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "x_o",
-                            "value": "L",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: oo_x + xx": [
-                        {
-                            "label": "oo_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xx",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: ox + xo_x": [
-                        {
-                            "label": "ox",
-                            "value": "N",
-                            "children": {}
-                        },
-                        {
-                            "label": "xo_x",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_x + ooxxoxxoxxoxxoxxox": [
-                        {
-                            "label": "x_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "ooxxoxxoxxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_o + xo_x": [
-                        {
-                            "label": "x_o",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xo_x",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: ox + xoxxox": [
-                        {
-                            "label": "ox",
-                            "value": "N",
-                            "children": {}
-                        },
-                        {
-                            "label": "xoxxox",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "LEFT: x_o + xoxxox": [
-                        {
-                            "label": "x_o",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xoxxox",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: o + oxo_x": [
-                        {
-                            "label": "o",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "oxo_x",
-                            "value": "L",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: _o + oxox": [
-                        {
-                            "label": "_o",
-                            "value": "L",
-                            "children": {
-                                "LEFT: _xxx + ooxxoxxox": [
-                                    {
-                                        "label": "_xxx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "ooxxoxxox",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: oo_x + xxx": [
-                                    {
-                                        "label": "oo_x",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxx",
-                                        "value": "P",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: x_o + xxoxxoxxoxxox": [
-                                    {
-                                        "label": "x_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxoxxoxxoxxox",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: _xxx + ooxxox": [
-                                    {
-                                        "label": "_xxx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "ooxxox",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: x_o + x": [
-                                    {
-                                        "label": "x_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "x",
-                                        "value": "P",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: _xxx + ooxxoxxoxxoxxoxxox": [
-                                    {
-                                        "label": "_xxx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "ooxxoxxoxxoxxoxxox",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: _x + xxxoo": [
-                                    {
-                                        "label": "_x",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxxoo",
-                                        "value": "P",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: _x + xo": [
-                                    {
-                                        "label": "_x",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xo",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: _xxx + oox": [
-                                    {
-                                        "label": "_xxx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "oox",
-                                        "value": "R",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: _xxx + oo_x": [
-                                    {
-                                        "label": "_xxx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "oo_x",
-                                        "value": "L",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: x_o + xxoxxoxxox": [
-                                    {
-                                        "label": "x_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxoxxoxxox",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: _xxx + ooxxoxxoxxox": [
-                                    {
-                                        "label": "_xxx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "ooxxoxxoxxox",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: x_o + xxoxxoxxoxxoxxox": [
-                                    {
-                                        "label": "x_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxoxxoxxoxxoxxox",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: x_o + xxox": [
-                                    {
-                                        "label": "x_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxox",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: x_o + xxoxxox": [
-                                    {
-                                        "label": "x_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxoxxox",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "LEFT: _x + x_o": [
-                                    {
-                                        "label": "_x",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "x_o",
-                                        "value": "L",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _xo + o": [
-                                    {
-                                        "label": "_xo",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "o",
-                                        "value": "P",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _xx + ooxxoxxoxo": [
-                                    {
-                                        "label": "_xx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "ooxxoxxoxo",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _o + xxoxo": [
-                                    {
-                                        "label": "_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxoxo",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _o + xxoxxoxo": [
-                                    {
-                                        "label": "_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxoxxoxo",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _xx + ooxxoxxoxxoxo": [
-                                    {
-                                        "label": "_xx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "ooxxoxxoxxoxo",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _o + _xo": [
-                                    {
-                                        "label": "_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "_xo",
-                                        "value": "L",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _xx + oo_xo": [
-                                    {
-                                        "label": "_xx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "oo_xo",
-                                        "value": "L",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _xo + xxoo": [
-                                    {
-                                        "label": "_xo",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxoo",
-                                        "value": "P",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _xx + ooxxoxo": [
-                                    {
-                                        "label": "_xx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "ooxxoxo",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _xx + ooxo": [
-                                    {
-                                        "label": "_xx",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "ooxo",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _o + xo": [
-                                    {
-                                        "label": "_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xo",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: oo_xo + xx": [
-                                    {
-                                        "label": "oo_xo",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xx",
-                                        "value": "P",
-                                        "children": {}
-                                    }
-                                ],
-                                "RIGHT: _o + xxoxxoxxoxo": [
-                                    {
-                                        "label": "_o",
-                                        "value": "L",
-                                        "children": {}
-                                    },
-                                    {
-                                        "label": "xxoxxoxxoxo",
-                                        "value": "N",
-                                        "children": {}
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "label": "oxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: oxo_x + o": [
-                        {
-                            "label": "oxo_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "o",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: oxo_x + xxoo": [
-                        {
-                            "label": "oxo_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xxoo",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: o + oxox": [
-                        {
-                            "label": "o",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "oxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: oo_xo + xxoxxoxxoxxoxxox": [
-                        {
-                            "label": "oo_xo",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xxoxxoxxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: _x + ooxxoxxoxo": [
-                        {
-                            "label": "_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "ooxxoxxoxo",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: oo_xo + x": [
-                        {
-                            "label": "oo_xo",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "x",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: _x + ooxxoxo": [
-                        {
-                            "label": "_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "ooxxoxo",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: oo_xo + xxoxxoxxox": [
-                        {
-                            "label": "oo_xo",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: oo_xo + xxox": [
-                        {
-                            "label": "oo_xo",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: oo_xo + xxoxxox": [
-                        {
-                            "label": "oo_xo",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: o + _o": [
-                        {
-                            "label": "o",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "_o",
-                            "value": "L",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: _o + oxoxxoxxox": [
-                        {
-                            "label": "_o",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "oxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: o + oxoxxoxxox": [
-                        {
-                            "label": "o",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "oxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: _x + ooxo": [
-                        {
-                            "label": "_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "ooxo",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: _o + oxo_x": [
-                        {
-                            "label": "_o",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "oxo_x",
-                            "value": "L",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: oo_xo + xxoxxoxxoxxox": [
-                        {
-                            "label": "oo_xo",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "xxoxxoxxoxxox",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: o + o": [
-                        {
-                            "label": "o",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "o",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: o + xxoo": [
-                        {
-                            "label": "o",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "xxoo",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: _x + ooxxoxxoxxoxo": [
-                        {
-                            "label": "_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "ooxxoxxoxxoxo",
-                            "value": "N",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT: _x + oo_xo": [
-                        {
-                            "label": "_x",
-                            "value": "L",
-                            "children": {}
-                        },
-                        {
-                            "label": "oo_xo",
-                            "value": "L",
-                            "children": {}
-                        }
-                    ]
-                }
-            },
-            {
-                "label": "x_xxx",
-                "value": "L",
-                "children": {}
-            }
-        ],
-        "LEFT: x_x + xxxoo": [
-            {
-                "label": "x_x",
                 "value": "L",
                 "children": {}
             },
             {
-                "label": "xxxoo",
+                "label": "xxxx",
                 "value": "P",
                 "children": {}
             }
@@ -1000,50 +26,14 @@
                 "children": {}
             }
         ],
-        "LEFT: x_x + xo": [
+        "LEFT: x_x + xxxoo": [
             {
                 "label": "x_x",
                 "value": "L",
                 "children": {}
             },
             {
-                "label": "xo",
-                "value": "N",
-                "children": {}
-            }
-        ],
-        "LEFT: x_xxx + ooxxoxxoxxox": [
-            {
-                "label": "x_xxx",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "ooxxoxxoxxox",
-                "value": "N",
-                "children": {}
-            }
-        ],
-        "LEFT: x_o + xx": [
-            {
-                "label": "x_o",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "xx",
-                "value": "P",
-                "children": {}
-            }
-        ],
-        "LEFT: oo_x + xxxx": [
-            {
-                "label": "oo_x",
-                "value": "N",
-                "children": {}
-            },
-            {
-                "label": "xxxx",
+                "label": "xxxoo",
                 "value": "P",
                 "children": {}
             }
@@ -1060,38 +50,1301 @@
                 "children": {}
             }
         ],
-        "RIGHT: _xxx + ooxxoxo": [
+        "LEFT: x_xxx + ooxxox": [
             {
-                "label": "_xxx",
+                "label": "x_xxx",
                 "value": "L",
                 "children": {}
             },
             {
-                "label": "ooxxoxo",
+                "label": "ooxxox",
                 "value": "N",
                 "children": {}
             }
         ],
-        "RIGHT: _xxx + ooxxoxxoxxoxo": [
+        "LEFT: x_o + xxxox": [
             {
-                "label": "_xxx",
+                "label": "x_o",
                 "value": "L",
                 "children": {}
             },
             {
-                "label": "ooxxoxxoxxoxo",
+                "label": "xxxox",
                 "value": "N",
                 "children": {}
             }
         ],
-        "RIGHT: _xxx + oo_xo": [
+        "LEFT: oo_x + x_xxx": [
             {
-                "label": "_xxx",
+                "label": "oo_x",
                 "value": "L",
                 "children": {}
             },
             {
-                "label": "oo_xo",
+                "label": "x_xxx",
+                "value": "L",
+                "children": {}
+            }
+        ],
+        "LEFT: x_x + xo": [
+            {
+                "label": "x_x",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "xo",
+                "value": "N",
+                "children": {}
+            }
+        ],
+        "LEFT: x_o + xx": [
+            {
+                "label": "x_o",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "xx",
+                "value": "P",
+                "children": {}
+            }
+        ],
+        "LEFT: x_xxx + ooxxoxxox": [
+            {
+                "label": "x_xxx",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "ooxxoxxox",
+                "value": "N",
+                "children": {}
+            }
+        ],
+        "LEFT: x_xxx + ooxxoxxoxxox": [
+            {
+                "label": "x_xxx",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "ooxxoxxoxxox",
+                "value": "N",
+                "children": {}
+            }
+        ],
+        "LEFT: x_xxx + ooxxoxxoxxoxxoxxox": [
+            {
+                "label": "x_xxx",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "ooxxoxxoxxoxxoxxox",
+                "value": "N",
+                "children": {}
+            }
+        ],
+        "RIGHT: _o + x_xo": [
+            {
+                "label": "_o",
+                "value": "L",
+                "children": {
+                    "LEFT: x_o + xxoxxox": [
+                        {
+                            "label": "x_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxoxxox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: _xxx + ooxxox": [
+                        {
+                            "label": "_xxx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "ooxxox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: x_o + xxoxxoxxoxxox": [
+                        {
+                            "label": "x_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxoxxoxxoxxox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: x_o + xxoxxoxxoxxoxxox": [
+                        {
+                            "label": "x_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxoxxoxxoxxoxxox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: _xxx + ooxxoxxox": [
+                        {
+                            "label": "_xxx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "ooxxoxxox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: oo_x + xxx": [
+                        {
+                            "label": "oo_x",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxx",
+                            "value": "P",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: _xxx + ooxxoxxoxxox": [
+                        {
+                            "label": "_xxx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "ooxxoxxoxxox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: _xxx + ooxxoxxoxxoxxoxxox": [
+                        {
+                            "label": "_xxx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "ooxxoxxoxxoxxoxxox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: _x + x_o": [
+                        {
+                            "label": "_x",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "x_o",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: x_o + xxoxxoxxox": [
+                        {
+                            "label": "x_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxoxxoxxox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: _x + xxxoo": [
+                        {
+                            "label": "_x",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxxoo",
+                            "value": "P",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: x_o + xxox": [
+                        {
+                            "label": "x_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: x_o + x": [
+                        {
+                            "label": "x_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "x",
+                            "value": "P",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: _xxx + oo_x": [
+                        {
+                            "label": "_xxx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "oo_x",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: _x + xo": [
+                        {
+                            "label": "_x",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT: _xxx + oox": [
+                        {
+                            "label": "_xxx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "oox",
+                            "value": "R",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: oo_xo + xx": [
+                        {
+                            "label": "oo_xo",
+                            "value": "N",
+                            "children": {
+                                "LEFT: oxo_x + xo": [
+                                    {
+                                        "label": "oxo_x",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x + oxxoxxoo": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxxoxxoo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: oo_x + xxxoxxoxxoxo": [
+                                    {
+                                        "label": "oo_x",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xxxoxxoxxoxo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: oo_x + xxxoxo": [
+                                    {
+                                        "label": "oo_x",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xxxoxo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x_xo + oox": [
+                                    {
+                                        "label": "x_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oox",
+                                        "value": "R",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: oxo_x + xxxoo": [
+                                    {
+                                        "label": "oxo_x",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xxxoo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x_xo + ooxxox": [
+                                    {
+                                        "label": "x_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooxxox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x_xo + ooxxoxxoxxoxxoxxox": [
+                                    {
+                                        "label": "x_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooxxoxxoxxoxxoxxox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: o + x_o": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "x_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: ox + oxoxxoxxox": [
+                                    {
+                                        "label": "ox",
+                                        "value": "N",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxoxxoxxox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: o + xo": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x + oo": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: ox + oxo_x": [
+                                    {
+                                        "label": "ox",
+                                        "value": "N",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxo_x",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: ox + oxox": [
+                                    {
+                                        "label": "ox",
+                                        "value": "N",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x_o + oxoxxoxxox": [
+                                    {
+                                        "label": "x_o",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxoxxoxxox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: o + xxxoo": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xxxoo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: oo_x + x_xo": [
+                                    {
+                                        "label": "oo_x",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "x_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x_o + oxox": [
+                                    {
+                                        "label": "x_o",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x_o + oxo_x": [
+                                    {
+                                        "label": "x_o",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxo_x",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x_xo + ooxxoxxox": [
+                                    {
+                                        "label": "x_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooxxoxxox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x_xo + ooxxoxxoxxox": [
+                                    {
+                                        "label": "x_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooxxoxxoxxox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT: x + o_o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: _o + oo": [
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: _xo + ooxxoxo": [
+                                    {
+                                        "label": "_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooxxoxo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: oo_xo + xxoxo": [
+                                    {
+                                        "label": "oo_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xxoxo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: _xo + ooxo": [
+                                    {
+                                        "label": "_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooxo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: _o + oxo_xo": [
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxo_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: _xo + ooxxoxxoxo": [
+                                    {
+                                        "label": "_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooxxoxxoxo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT:  + ooxxoo": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooxxoo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: oxo_xo + o": [
+                                    {
+                                        "label": "oxo_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT:  + ooxxoxxoxxoo": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooxxoxxoxxoo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: o + oxo_xo": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxo_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: oo_xo + xxoxxoxo": [
+                                    {
+                                        "label": "oo_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xxoxxoxo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: oo_xo + xo": [
+                                    {
+                                        "label": "oo_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: _o + oxoxxoxo": [
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxoxxoxo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: _xo + ooxxoxxoxxoxo": [
+                                    {
+                                        "label": "_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooxxoxxoxxoxo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT:  + ooo": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "ooo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: oo + xxoo": [
+                                    {
+                                        "label": "oo",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xxoo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: o + oxoxxoxo": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oxoxxoxo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: oo_xo + xxoxxoxxoxo": [
+                                    {
+                                        "label": "oo_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xxoxxoxxoxo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT:  + oo_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oo_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: ox + ooxxoxxoxxox": [
+                                                {
+                                                    "label": "ox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxxoxxox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: x_o + oo_x": [
+                                                {
+                                                    "label": "x_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "oo_x",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: ox + oo_x": [
+                                                {
+                                                    "label": "ox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "oo_x",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: x_o + oox": [
+                                                {
+                                                    "label": "x_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "oox",
+                                                    "value": "R",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: ox + oox": [
+                                                {
+                                                    "label": "ox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "oox",
+                                                    "value": "R",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: x_o + ooxxox": [
+                                                {
+                                                    "label": "x_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: ox + ooxxox": [
+                                                {
+                                                    "label": "ox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: ox + ooxxoxxox": [
+                                                {
+                                                    "label": "ox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxxox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: oo_x + xxxoo": [
+                                                {
+                                                    "label": "oo_x",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "xxxoo",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: x_o + ooxxoxxoxxoxxoxxox": [
+                                                {
+                                                    "label": "x_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxxoxxoxxoxxox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: x_o + ooxxoxxox": [
+                                                {
+                                                    "label": "x_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxxox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: x_o + ooxxoxxoxxox": [
+                                                {
+                                                    "label": "x_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxxoxxox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: oo_x + xo": [
+                                                {
+                                                    "label": "oo_x",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "xo",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "LEFT: ox + ooxxoxxoxxoxxoxxox": [
+                                                {
+                                                    "label": "ox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxxoxxoxxoxxox",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: oo_xo + xxoo": [
+                                                {
+                                                    "label": "oo_xo",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "xxoo",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: o + ooxxoxxoxxoxo": [
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxxoxxoxo",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: oo_xo + o": [
+                                                {
+                                                    "label": "oo_xo",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: _o + ooxxoxxoxxoxo": [
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxxoxxoxo",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: o + ooxxoxo": [
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxo",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: o + oo_xo": [
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "oo_xo",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: o + ooxo": [
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxo",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: _o + oo_xo": [
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "oo_xo",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: _o + ooxxoxo": [
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxo",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: o + ooxxoxxoxo": [
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxxoxo",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: _o + ooxxoxxoxo": [
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxxoxxoxo",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: _o + ooxo": [
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "ooxo",
+                                                    "value": "N",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: _xo + oo_xo": [
+                                    {
+                                        "label": "_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "oo_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: oo + o": [
+                                    {
+                                        "label": "oo",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: oxo_xo + xxoo": [
+                                    {
+                                        "label": "oxo_xo",
+                                        "value": "L",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xxoo",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "label": "xx",
+                            "value": "P",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _xx + ooxxoxxoxxoxo": [
+                        {
+                            "label": "_xx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "ooxxoxxoxxoxo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _xx + ooxxoxxoxo": [
+                        {
+                            "label": "_xx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "ooxxoxxoxo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _o + xo": [
+                        {
+                            "label": "_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _xx + ooxo": [
+                        {
+                            "label": "_xx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "ooxo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _xo + xxoo": [
+                        {
+                            "label": "_xo",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxoo",
+                            "value": "P",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _xo + o": [
+                        {
+                            "label": "_xo",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _o + _xo": [
+                        {
+                            "label": "_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "_xo",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _o + xxoxxoxo": [
+                        {
+                            "label": "_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxoxxoxo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _o + xxoxxoxxoxo": [
+                        {
+                            "label": "_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxoxxoxxoxo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _xx + oo_xo": [
+                        {
+                            "label": "_xx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "oo_xo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _o + xxoxo": [
+                        {
+                            "label": "_o",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "xxoxo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _xx + ooxxoxo": [
+                        {
+                            "label": "_xx",
+                            "value": "L",
+                            "children": {}
+                        },
+                        {
+                            "label": "ooxxoxo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "label": "x_xo",
                 "value": "L",
                 "children": {}
             }
@@ -1108,54 +1361,6 @@
                 "children": {}
             }
         ],
-        "RIGHT: oo_xo + xxx": [
-            {
-                "label": "oo_xo",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "xxx",
-                "value": "P",
-                "children": {}
-            }
-        ],
-        "RIGHT: _xxx + ooxo": [
-            {
-                "label": "_xxx",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "ooxo",
-                "value": "N",
-                "children": {}
-            }
-        ],
-        "RIGHT: _o + x_xo": [
-            {
-                "label": "_o",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "x_xo",
-                "value": "L",
-                "children": {}
-            }
-        ],
-        "RIGHT: _xxx + ooxxoxxoxo": [
-            {
-                "label": "_xxx",
-                "value": "L",
-                "children": {}
-            },
-            {
-                "label": "ooxxoxxoxo",
-                "value": "N",
-                "children": {}
-            }
-        ],
         "RIGHT: x_xo + o": [
             {
                 "label": "x_xo",
@@ -1165,6 +1370,30 @@
             {
                 "label": "o",
                 "value": "P",
+                "children": {}
+            }
+        ],
+        "RIGHT: oo_xo + xxx": [
+            {
+                "label": "oo_xo",
+                "value": "N",
+                "children": {}
+            },
+            {
+                "label": "xxx",
+                "value": "P",
+                "children": {}
+            }
+        ],
+        "RIGHT: _xxx + ooxxoxxoxxoxo": [
+            {
+                "label": "_xxx",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "ooxxoxxoxxoxo",
+                "value": "N",
                 "children": {}
             }
         ],
@@ -1188,6 +1417,54 @@
             },
             {
                 "label": "xxxoxo",
+                "value": "N",
+                "children": {}
+            }
+        ],
+        "RIGHT: _xxx + oo_xo": [
+            {
+                "label": "_xxx",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "oo_xo",
+                "value": "N",
+                "children": {}
+            }
+        ],
+        "RIGHT: _xxx + ooxxoxo": [
+            {
+                "label": "_xxx",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "ooxxoxo",
+                "value": "N",
+                "children": {}
+            }
+        ],
+        "RIGHT: _xxx + ooxxoxxoxo": [
+            {
+                "label": "_xxx",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "ooxxoxxoxo",
+                "value": "N",
+                "children": {}
+            }
+        ],
+        "RIGHT: _xxx + ooxo": [
+            {
+                "label": "_xxx",
+                "value": "L",
+                "children": {}
+            },
+            {
+                "label": "ooxo",
                 "value": "N",
                 "children": {}
             }
