@@ -2,10 +2,11 @@ from itertools import product
 from utilities import generate_test_sequence, write_to_file, clear_file
 import tree
 from pprint import pp
-from prover import prover, jsonify, evaluate
+from prover import evaluate
 from collections import defaultdict
 import json
 import random
+import segclobber
 
 def simulate_move(q, x):
     '''
@@ -97,6 +98,8 @@ def get_small_positions(pattern, q):
     :param q: tuple representing repeating pattern
     :returns small: set of tuples representing all small positions
     '''
+    print(f"pattern: {pattern}")
+    print(f"q: {q}")
     small = set()
     if pattern and pattern[-1] != q[0]: # if pattern is non-empty and a move is possible
         small.add(pattern[:-1]) # capturing to the right
@@ -284,8 +287,12 @@ def run(pattern, p, s, name, state, moves=False):
     print("&" * 40)
     #pp(game_dict)
     
-    with open(f'json/{name}/{name}_base_cases.json', 'r') as f:
-        base_cases = json.load(f)
+    #with open(f'json/{name}/{name}_base_cases.json', 'r') as f:
+    #    base_cases = json.load(f)
+    base_cases = segclobber.compute_all_base_cases(all_subgames, 
+                                                   ["".join(s) for s in small], 
+                                                   pattern, 
+                                                   10)
 
     proof_node = evaluate(state, game_dict, base_cases, 0)
 

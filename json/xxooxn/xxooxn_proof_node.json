@@ -1,22 +1,22 @@
 {
-    "label": "xoo_",
+    "label": "xxoo_",
     "value": "P",
     "children": {
-        "LEFT: _ + xox": [
+        "LEFT: _ + xxox": [
             {
                 "label": "_",
                 "value": "P",
                 "children": {}
             },
             {
-                "label": "xox",
+                "label": "xxox",
                 "value": "N",
                 "children": {}
             }
         ],
-        "LEFT:  + xo_": [
+        "LEFT: x + xo_": [
             {
-                "label": "",
+                "label": "x",
                 "value": "P",
                 "children": {}
             },
@@ -137,12 +137,7 @@
                 "children": {}
             }
         ],
-        "RIGHT: o + o_": [
-            {
-                "label": "o",
-                "value": "P",
-                "children": {}
-            },
+        "RIGHT: o_ + xxo": [
             {
                 "label": "o_",
                 "value": "L",
@@ -172,6 +167,11 @@
                         }
                     ]
                 }
+            },
+            {
+                "label": "xxo",
+                "value": "L",
+                "children": {}
             }
         ]
     }

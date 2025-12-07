@@ -1,5 +1,6 @@
 import subprocess
 from pathlib import Path
+from pprint import pp
 
 def segclobber(position, player):
     binary = Path(__file__).parent / "bin" / "segclobber"
@@ -18,6 +19,8 @@ def segclobber(position, player):
     return winning_player
 
 def get_outcome_class(position):
+    if position == "":
+        return "P"
     position = position.replace("x", "B").replace("o", "W")
     left_can_win = True if segclobber(position, "B") == "B" else False
     right_can_win = True if segclobber(position, "W") == "W" else False
@@ -33,16 +36,36 @@ def get_outcome_class(position):
 
 def compute_base_cases(pattern, q, length):
     prefix, suffix = pattern.split("_")
-    result = []
+    result = {}
     for i in range(length):
         g = f"{prefix}{q*i}{suffix}"
-        if g == "":
-            continue
-        result.append(get_outcome_class(g))
+        result[g] = get_outcome_class(g)
+    return result
+
+def evaluate_base_cases(pattern, base_cases):
+    result = {}
+    games = sorted(base_cases.keys(), key=len)
+    for g in games:
+        if len(set(base_cases.values())) == 1:
+            result[pattern] = base_cases[g]
+            break
+        result[g] = base_cases[g]
+        base_cases.pop(g)
+    return result
+
+def compute_all_base_cases(patterns, small_games, q, amount):
+    result = {}
+    for pattern in patterns:
+        base_cases = compute_base_cases(pattern, q, amount)
+        simplified_base_cases = evaluate_base_cases(pattern, base_cases)
+        result.update(simplified_base_cases)
+    for small_game in small_games:
+        result[small_game] = get_outcome_class(small_game)
     return result
 
 if __name__ == "__main__":
-    g = "_"
+    g = "o_o"
     q = "xxo"
-    result = compute_base_cases(g, q, 21)
-    print(result)
+    all_states = ['_', '_o', '_x', '_xo', '_xx', '_xxx', 'o_', 'o_o', 'o_x', 'o_xo', 'oo_o', 'oo_x', 'oo_xo', 'oxo_x', 'oxo_xo', 'x_', 'x_o', 'x_x', 'x_xo', 'x_xxx', 'xo_x']
+    bc = compute_all_base_cases(all_states, [], q, 10)    
+    pp(bc)    
