@@ -3,25 +3,25 @@ from collections import defaultdict
 from json import dumps, dump
 from node import Node
 from itertools import product
+from functools import lru_cache
 
-def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
-    if memo is None:
-        memo = {}
+def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
+    nodes += 1
+    if nodes % 500 == 0:
+        print(nodes)
+
     if path_visited is None:
         path_visited = {}
 
-    if state in memo:
-        return Node(state, memo[state])
-    
     if "_" not in state:
-        return Node(state, base_cases[state])
+        return Node(state, base_cases[state]), nodes
 
     # apply inductive hypothesis
     if state in path_visited:
         depth_diff = depth - path_visited[state]
         #print(f"state: {state}")
         #print(f"difference in depth: {depth_diff}")
-        return Node(state, base_cases[state])
+        return Node(state, base_cases[state]), nodes
 
     # mark this node as visited along the current path
     path_visited[state] = depth
@@ -29,21 +29,21 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
     # recursively evaluate all options
     left_children_x = []
     right_children_x = []
-    x_values = []
+    x_values = set()
     for sub1, sub2 in game_dict[state].get('x', []):
-        child1 = evaluate(sub1, game_dict, base_cases, depth+1, memo, path_visited)
-        child2 = evaluate(sub2, game_dict, base_cases, depth+1, memo, path_visited)
-        x_values.append(outcome_add(child1.value, child2.value))
+        child1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
+        child2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
+        x_values.add(outcome_add_cached(child1.value, child2.value))
         left_children_x.append(child1)
         right_children_x.append(child2)
 
     left_children_o = []
     right_children_o = []
-    o_values = []
+    o_values = set()
     for sub1, sub2 in game_dict[state].get('o', []):
-        child1 = evaluate(sub1, game_dict, base_cases, depth+1, memo, path_visited)
-        child2 = evaluate(sub2, game_dict, base_cases, depth+1, memo, path_visited)
-        o_values.append(outcome_add(child1.value, child2.value))
+        child1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
+        child2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
+        o_values.add(outcome_add_cached(child1.value, child2.value))
         left_children_o.append(child1)
         right_children_o.append(child2)
 
@@ -51,10 +51,10 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
     values = []
     #print(f"o_vals: {o_values}")
     #print(f"x_vals: {x_values}")
-    for expanded_x_values in expand_outcomes(x_values):
-        for expanded_o_values in expand_outcomes(o_values):
-            position = {'left': expanded_x_values, 'right': expanded_o_values}
-            value = compute_value(position)
+    for expanded_x_values in expand_outcomes_cached(tuple(x_values)):
+        for expanded_o_values in expand_outcomes_cached(tuple(o_values)):
+            #position = {'left': expanded_x_values, 'right': expanded_o_values}
+            value = compute_value_cached(tuple(expanded_x_values), tuple(expanded_o_values))
             values.append(value)
     #print(values)
 
@@ -72,11 +72,22 @@ def evaluate(state, game_dict, base_cases, depth, memo=None, path_visited=None):
     #with open(f'json/all_nodes/{state}_proof_node.json', 'w', encoding='utf-8') as f:
     #    dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
 
-    memo[state] = value
-
     path_visited.pop(state)
 
-    return proof_node
+    return proof_node, nodes
+
+@lru_cache(None)
+def outcome_add_cached(a, b):
+    return outcome_add(a, b)
+
+@lru_cache(None)
+def expand_outcomes_cached(values_tuple):
+    return expand_outcomes(list(values_tuple))
+
+@lru_cache(None)
+def compute_value_cached(left, right):
+    position = {"left": list(left), "right": list(right)}
+    return compute_value(position)
 
 def expand_outcomes(outcome_list):
     normalized_list = [outcome if type(outcome) == list else [outcome] for outcome in outcome_list]
@@ -125,9 +136,9 @@ def outcome_add(a, b):
     summands = sorted([a, b])
     #print(summands)
     if summands == ["L", "N"]:
-        return summands
+        return tuple(summands)
     if summands == ["N", "R"]:
-        return summands
+        return tuple(summands)
     if summands[0] == "":
         return summands[1]
     if summands[0] == "P":

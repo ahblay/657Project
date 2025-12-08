@@ -59,6 +59,12 @@ def compute_all_base_cases(patterns, small_games, q, amount):
         base_cases = compute_base_cases(pattern, q, amount)
         simplified_base_cases = evaluate_base_cases(pattern, base_cases)
         result.update(simplified_base_cases)
+        '''inductive_hypothesis = simplified_base_cases[pattern]
+        for game, outcome in simplified_base_cases.items():
+            if game == pattern:
+                result[game] = outcome
+            if outcome != inductive_hypothesis:
+                result[game] = outcome'''
     for small_game in small_games:
         result[small_game] = get_outcome_class(small_game)
     return result

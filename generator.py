@@ -293,8 +293,10 @@ def run(pattern, p, s, name, state, moves=False):
                                                    ["".join(s) for s in small], 
                                                    pattern, 
                                                    10)
+    base_cases["xxo"] = "L"
 
-    proof_node = evaluate(state, game_dict, base_cases, 0)
+    proof_node, nodes = evaluate(state, game_dict, base_cases, 0, 0)
+    print(nodes)
 
     with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
         json.dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)

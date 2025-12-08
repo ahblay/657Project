@@ -100,43 +100,6 @@
                 }
             }
         ],
-        "RIGHT: o_ + xo": [
-            {
-                "label": "o_",
-                "value": "L",
-                "children": {
-                    "LEFT: _ + x": [
-                        {
-                            "label": "_",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "x",
-                            "value": "P",
-                            "children": {}
-                        }
-                    ],
-                    "RIGHT:  + o_": [
-                        {
-                            "label": "",
-                            "value": "P",
-                            "children": {}
-                        },
-                        {
-                            "label": "o_",
-                            "value": "L",
-                            "children": {}
-                        }
-                    ]
-                }
-            },
-            {
-                "label": "xo",
-                "value": "N",
-                "children": {}
-            }
-        ],
         "RIGHT: o_ + xxo": [
             {
                 "label": "o_",
@@ -171,6 +134,43 @@
             {
                 "label": "xxo",
                 "value": "L",
+                "children": {}
+            }
+        ],
+        "RIGHT: o_ + xo": [
+            {
+                "label": "o_",
+                "value": "L",
+                "children": {
+                    "LEFT: _ + x": [
+                        {
+                            "label": "_",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "x",
+                            "value": "P",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT:  + o_": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "label": "xo",
+                "value": "N",
                 "children": {}
             }
         ]
