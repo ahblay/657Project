@@ -5,76 +5,79 @@ from node import Node
 from itertools import product
 from functools import lru_cache
 
+def proof_tree(state, game_dict, base_cases, value):
+    node = Node(state, value)
+    pp(game_dict)
+
+    # x moves
+    node.left_children_x = []
+    node.right_children_x = []
+    for sub1, sub2 in game_dict[state].get('x', []):
+        val1, nodes = evaluate(sub1, game_dict, base_cases, 0, 0)
+        val2, nodes = evaluate(sub2, game_dict, base_cases, 0, 0)
+        node.left_children_x.append(proof_tree(sub1, game_dict, base_cases, val1))
+        node.right_children_x.append(proof_tree(sub2, game_dict, base_cases, val2))
+
+    # o moves
+    node.left_children_o = []
+    node.right_children_o = []
+    for sub1, sub2 in game_dict[state].get('o', []):
+        val1, nodes = evaluate(sub1, game_dict, base_cases, 0, 0)
+        val2, nodes = evaluate(sub2, game_dict, base_cases, 0, 0)
+        node.left_children_o.append(proof_tree(sub1, game_dict, base_cases, val1))
+        node.right_children_o.append(proof_tree(sub2, game_dict, base_cases, val2))
+
+    return node
+
 def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
     nodes += 1
-    if nodes % 500 == 0:
+    if nodes % 1000000 == 0:
         print(nodes)
 
     if path_visited is None:
         path_visited = {}
 
     if "_" not in state:
-        return Node(state, base_cases[state]), nodes
+        return base_cases[state], nodes
 
     # apply inductive hypothesis
     if state in path_visited:
         depth_diff = depth - path_visited[state]
         #print(f"state: {state}")
         #print(f"difference in depth: {depth_diff}")
-        return Node(state, base_cases[state]), nodes
+        return base_cases[state], nodes
 
     # mark this node as visited along the current path
     path_visited[state] = depth
 
     # recursively evaluate all options
-    left_children_x = []
-    right_children_x = []
     x_values = set()
     for sub1, sub2 in game_dict[state].get('x', []):
-        child1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
-        child2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
-        x_values.add(outcome_add_cached(child1.value, child2.value))
-        left_children_x.append(child1)
-        right_children_x.append(child2)
+        val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
+        val2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
+        x_values.add(outcome_add_cached(val1, val2))
 
-    left_children_o = []
-    right_children_o = []
     o_values = set()
     for sub1, sub2 in game_dict[state].get('o', []):
-        child1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
-        child2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
-        o_values.add(outcome_add_cached(child1.value, child2.value))
-        left_children_o.append(child1)
-        right_children_o.append(child2)
+        val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
+        val2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
+        o_values.add(outcome_add_cached(val1, val2))
 
     # compute outcoem class
     values = []
-    #print(f"o_vals: {o_values}")
-    #print(f"x_vals: {x_values}")
     for expanded_x_values in expand_outcomes_cached(tuple(x_values)):
         for expanded_o_values in expand_outcomes_cached(tuple(o_values)):
-            #position = {'left': expanded_x_values, 'right': expanded_o_values}
             value = compute_value_cached(tuple(expanded_x_values), tuple(expanded_o_values))
             values.append(value)
-    #print(values)
 
     if len(set(values)) == 1:
         value = values[0]
     else:
         value = "U"
 
-    proof_node = Node(state, value)
-    proof_node.left_children_x = left_children_x
-    proof_node.right_children_x = right_children_x
-    proof_node.left_children_o = left_children_o
-    proof_node.right_children_o = right_children_o
-
-    #with open(f'json/all_nodes/{state}_proof_node.json', 'w', encoding='utf-8') as f:
-    #    dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
-
     path_visited.pop(state)
 
-    return proof_node, nodes
+    return value, nodes
 
 @lru_cache(None)
 def outcome_add_cached(a, b):

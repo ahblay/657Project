@@ -55,23 +55,29 @@ def evaluate_base_cases(pattern, base_cases):
 
 def compute_all_base_cases(patterns, small_games, q, amount):
     result = {}
+    small = {}
     for pattern in patterns:
+        small[pattern] = []
         base_cases = compute_base_cases(pattern, q, amount)
         simplified_base_cases = evaluate_base_cases(pattern, base_cases)
-        result.update(simplified_base_cases)
-        '''inductive_hypothesis = simplified_base_cases[pattern]
+        #result.update(simplified_base_cases)
+        inductive_hypothesis = simplified_base_cases[pattern]
         for game, outcome in simplified_base_cases.items():
             if game == pattern:
                 result[game] = outcome
             if outcome != inductive_hypothesis:
-                result[game] = outcome'''
+                result[game] = outcome
+                small[pattern].append(game)
     for small_game in small_games:
         result[small_game] = get_outcome_class(small_game)
-    return result
+    return result, small
 
 if __name__ == "__main__":
     g = "o_o"
     q = "xxo"
     all_states = ['_', '_o', '_x', '_xo', '_xx', '_xxx', 'o_', 'o_o', 'o_x', 'o_xo', 'oo_o', 'oo_x', 'oo_xo', 'oxo_x', 'oxo_xo', 'x_', 'x_o', 'x_x', 'x_xo', 'x_xxx', 'xo_x']
-    bc = compute_all_base_cases(all_states, [], q, 10)    
-    pp(bc)    
+    #bc, sbc = compute_all_base_cases(all_states, [], q, 10)    
+    #pp(bc)    
+    #pp(sbc)
+
+    print(get_outcome_class("xooxxxxxxxxxxxxxxxxxxxox"))

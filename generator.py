@@ -2,7 +2,7 @@ from itertools import product
 from utilities import generate_test_sequence, write_to_file, clear_file
 import tree
 from pprint import pp
-from prover import evaluate
+from prover import evaluate, proof_tree
 from collections import defaultdict
 import json
 import random
@@ -232,11 +232,12 @@ def add_small_positions(game_dict, small_positions):
             for sumgame in sumgames:
                 new_sumgames.add(sumgame)
                 for idx in range(2):
-                    subgame = sumgame[idx % 2]
-                    base_cases = small_positions[subgame] if subgame in small_positions else []
-                    for position in base_cases:
-                        new_sumgames.add((sumgame[(idx + 1) % 2], position))
-            output[k][piece] = new_sumgames
+                    if "_" in sumgame[(idx + 1) % 2]:
+                        subgame = sumgame[idx % 2]
+                        base_cases = small_positions[subgame] if subgame in small_positions else []
+                        for position in base_cases:
+                            new_sumgames.add((sumgame[(idx + 1) % 2], position))
+            output[k][piece] = tuple(new_sumgames)
     return output
 
 def create_cgs_file(pattern_list, q, filename):
@@ -275,31 +276,30 @@ def run(pattern, p, s, name, state, moves=False):
             o_cleaned = tree.clean(children['o'])
             o_simplified = tree.simplify(o_cleaned, symmetries_dict)
 
-            game_dict[subgame] = {'x': x_simplified, 'o': o_simplified}
-    
-        create_cgs_file(all_subgames, pattern, 'cmds')
-    
-    if pattern =="xxo":
-        with open('json/small_games.json', 'r') as f:
-            small_games = json.load(f)
-        game_dict = add_small_positions(game_dict, small_games)
-    
+            game_dict[subgame] = {'x': tuple(x_simplified), 'o': tuple(o_simplified)}
+        
     print("&" * 40)
-    #pp(game_dict)
-    
-    #with open(f'json/{name}/{name}_base_cases.json', 'r') as f:
-    #    base_cases = json.load(f)
-    base_cases = segclobber.compute_all_base_cases(all_subgames, 
+
+    base_cases, small = segclobber.compute_all_base_cases(all_subgames, 
                                                    ["".join(s) for s in small], 
                                                    pattern, 
                                                    10)
     base_cases["xxo"] = "L"
+    pp(small)
+    game_dict = add_small_positions(game_dict, small)
 
-    proof_node, nodes = evaluate(state, game_dict, base_cases, 0, 0)
+    print("&" * 40)
+    pp(game_dict)
+    print("&" * 40)
+
+    value, nodes = evaluate(state, game_dict, base_cases, 0, 0)
     print(nodes)
+    print(value)
 
-    with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
-        json.dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
+    #proof_node = proof_tree(state, game_dict, base_cases, value)
+
+    #with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
+    #    json.dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
     all_states = ['_', '_o', '_x', '_xo', '_xx', '_xxx', 'o_', 'o_o', 'o_x', 'o_xo', 'oo_o', 'oo_x', 'oo_xo', 'oxo_x', 'oxo_xo', 'x_', 'x_o', 'x_x', 'x_xo', 'x_xxx', 'xo_x']
