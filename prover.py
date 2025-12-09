@@ -31,8 +31,10 @@ def proof_tree(state, game_dict, base_cases, value):
 
 def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
     nodes += 1
-    if nodes % 1000000 == 0:
+    if nodes % 10000000 == 0:
         print(nodes)
+    #if nodes > 100000000:
+    #    return "U", nodes
 
     if path_visited is None:
         path_visited = {}
@@ -55,13 +57,19 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
     for sub1, sub2 in game_dict[state].get('x', []):
         val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
         val2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
-        x_values.add(outcome_add_cached(val1, val2))
+        result = outcome_add_cached(val1, val2)
+        x_values.add(result)
+        if result in ["L", "P"]:
+            break
 
     o_values = set()
     for sub1, sub2 in game_dict[state].get('o', []):
         val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
         val2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
-        o_values.add(outcome_add_cached(val1, val2))
+        result = outcome_add_cached(val1, val2)
+        o_values.add(result)
+        if result in ["R", "P"]:
+            break
 
     # compute outcoem class
     values = []

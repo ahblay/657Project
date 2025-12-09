@@ -98,8 +98,8 @@ def get_small_positions(pattern, q):
     :param q: tuple representing repeating pattern
     :returns small: set of tuples representing all small positions
     '''
-    print(f"pattern: {pattern}")
-    print(f"q: {q}")
+    #print(f"pattern: {pattern}")
+    #print(f"q: {q}")
     small = set()
     if pattern and pattern[-1] != q[0]: # if pattern is non-empty and a move is possible
         small.add(pattern[:-1]) # capturing to the right
@@ -285,12 +285,12 @@ def run(pattern, p, s, name, state, moves=False):
                                                    pattern, 
                                                    10)
     base_cases["xxo"] = "L"
-    pp(small)
+    #pp(small)
     game_dict = add_small_positions(game_dict, small)
 
     print("&" * 40)
-    pp(game_dict)
-    print("&" * 40)
+    #pp(game_dict)
+    #print("&" * 40)
 
     value, nodes = evaluate(state, game_dict, base_cases, 0, 0)
     print(nodes)
@@ -302,10 +302,15 @@ def run(pattern, p, s, name, state, moves=False):
     #    json.dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
+    test = ["_"]
     all_states = ['_', '_o', '_x', '_xo', '_xx', '_xxx', 'o_', 'o_o', 'o_x', 'o_xo', 'oo_o', 'oo_x', 'oo_xo', 'oxo_x', 'oxo_xo', 'x_', 'x_o', 'x_x', 'x_xo', 'x_xxx', 'xo_x']
-    state = "_"
-    pattern = "xxo"
-    p = {()}
-    s = {()}
-    name = "xxo"
-    run(pattern, p, s, name, state, False)
+    for state in test:
+        print("=" * 50 + "(" + state + ")" + "=" * 50)
+        #state = "_"
+        pattern = "xxo"
+        prefix = state.split("_")[0]
+        suffix = state.split("_")[1]
+        p = {tuple(prefix)}
+        s = {tuple(suffix)}
+        name = "xxo"
+        run(pattern, p, s, name, state, False)
