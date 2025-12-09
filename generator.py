@@ -176,10 +176,15 @@ def find_symmetries_xxo(prefixes, suffixes, q):
     for pattern in patterns:
         p = pattern[0]
         s = pattern[1]
-        new_p = s[::-1] + ('o',)
-        new_p = "".join(list(new_p)).removesuffix(''.join(q))
+
+        new_p = s[::-1] + ('o',)        
+        if new_p[-len(q):] == q:
+            new_p = new_p[:-len(q)]
+
         new_s = ('x', 'x',) + p[::-1]
-        new_s = "".join(list(new_s)).removeprefix(''.join(q))
+        if new_s[:len(q)] == q:
+            new_s = new_s[len(q):]
+        
         #TODO: Is this necessary?
         if (tuple(new_p), tuple(new_s)) in patterns:
             result.append([(tuple(new_p), tuple(new_s)), pattern])
@@ -266,7 +271,7 @@ def run(pattern, p, s, name, state, moves=False):
 
         symmetries_dict = get_symmetries_dict(symmetries)
         all_subgames = sorted(list(symmetries_dict.values()))
-        print(all_subgames)
+        print(symmetries_dict)
 
         game_dict = {}
         for subgame in all_subgames:

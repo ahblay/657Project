@@ -1,2 +1,2 @@
-nodes visited: 100000000
+nodes visited: 20000000
 outcome: incomplete
