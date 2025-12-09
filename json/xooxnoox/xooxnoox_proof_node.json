@@ -1,0 +1,2224 @@
+{
+    "label": "xoo_oox",
+    "value": "P",
+    "children": {
+        "LEFT:  + xo_oox": [
+            {
+                "label": "",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "xo_oox",
+                "value": "N",
+                "children": {
+                    "LEFT: xx + _oox": [
+                        {
+                            "label": "xx",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "_oox",
+                            "value": "P",
+                            "children": {
+                                "LEFT: _ + xox": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT:  + _ox": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_ox",
+                                        "value": "N",
+                                        "children": {
+                                            "LEFT: _ + xx": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "xx",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: _ + o": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: o + _o": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: _o + ox": [
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "label": "ox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: x + o_oox": [
+                        {
+                            "label": "x",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_oox",
+                            "value": "L",
+                            "children": {
+                                "LEFT:  + o_ox": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_ox",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: o_ + xx": [
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {
+                                                        "LEFT: _ + x": [
+                                                            {
+                                                                "label": "_",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "x",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            }
+                                                        ],
+                                                        "RIGHT:  + o_": [
+                                                            {
+                                                                "label": "",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "o_",
+                                                                "value": "L",
+                                                                "children": {}
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "label": "xx",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + o_ox": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_ox",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: o + o_": [
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {
+                                                        "LEFT: _ + x": [
+                                                            {
+                                                                "label": "_",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "x",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            }
+                                                        ],
+                                                        "RIGHT:  + o_": [
+                                                            {
+                                                                "label": "",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "o_",
+                                                                "value": "L",
+                                                                "children": {}
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "RIGHT: x + o_o": [
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_o",
+                                                    "value": "L",
+                                                    "children": {
+                                                        "LEFT: x + _o": [
+                                                            {
+                                                                "label": "x",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "_o",
+                                                                "value": "L",
+                                                                "children": {
+                                                                    "LEFT: _ + x": [
+                                                                        {
+                                                                            "label": "_",
+                                                                            "value": "P",
+                                                                            "children": {}
+                                                                        },
+                                                                        {
+                                                                            "label": "x",
+                                                                            "value": "P",
+                                                                            "children": {}
+                                                                        }
+                                                                    ],
+                                                                    "RIGHT:  + _o": [
+                                                                        {
+                                                                            "label": "",
+                                                                            "value": "P",
+                                                                            "children": {}
+                                                                        },
+                                                                        {
+                                                                            "label": "_o",
+                                                                            "value": "L",
+                                                                            "children": {}
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "RIGHT:  + o_o": [
+                                                            {
+                                                                "label": "",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "o_o",
+                                                                "value": "L",
+                                                                "children": {}
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT:  + o_oox": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_oox",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: ox + o_o": [
+                                    {
+                                        "label": "ox",
+                                        "value": "N",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: x + _o": [
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {
+                                                        "LEFT: _ + x": [
+                                                            {
+                                                                "label": "_",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "x",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            }
+                                                        ],
+                                                        "RIGHT:  + _o": [
+                                                            {
+                                                                "label": "",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "_o",
+                                                                "value": "L",
+                                                                "children": {}
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "RIGHT:  + o_o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: o + o_o": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: x + _o": [
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {
+                                                        "LEFT: _ + x": [
+                                                            {
+                                                                "label": "_",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "x",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            }
+                                                        ],
+                                                        "RIGHT:  + _o": [
+                                                            {
+                                                                "label": "",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "_o",
+                                                                "value": "L",
+                                                                "children": {}
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "RIGHT:  + o_o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: ox + xo_o": [
+                        {
+                            "label": "ox",
+                            "value": "N",
+                            "children": {}
+                        },
+                        {
+                            "label": "xo_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT:  + x_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "x_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: x + x_": [
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + x_o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: x + o_o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: x + _o": [
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {
+                                                        "LEFT: _ + x": [
+                                                            {
+                                                                "label": "_",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "x",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            }
+                                                        ],
+                                                        "RIGHT:  + _o": [
+                                                            {
+                                                                "label": "",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "_o",
+                                                                "value": "L",
+                                                                "children": {}
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "RIGHT:  + o_o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: o + _o": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT:  + xo_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xo_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: o + _oox": [
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "_oox",
+                            "value": "P",
+                            "children": {
+                                "LEFT: _ + xox": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT:  + _ox": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_ox",
+                                        "value": "N",
+                                        "children": {
+                                            "LEFT: _ + xx": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "xx",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: _ + o": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: o + _o": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: _o + ox": [
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "label": "ox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "LEFT: xox + xoo_": [
+            {
+                "label": "xox",
+                "value": "N",
+                "children": {}
+            },
+            {
+                "label": "xoo_",
+                "value": "P",
+                "children": {
+                    "LEFT: _ + xox": [
+                        {
+                            "label": "_",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "xox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT:  + xo_": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "xo_",
+                            "value": "N",
+                            "children": {
+                                "LEFT: _ + xx": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xx",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: _ + o": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: o + o_": [
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_",
+                            "value": "L",
+                            "children": {
+                                "LEFT: _ + x": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT:  + o_": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: o_ + xo": [
+                        {
+                            "label": "o_",
+                            "value": "L",
+                            "children": {
+                                "LEFT: _ + x": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT:  + o_": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "label": "xo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ]
+                }
+            }
+        ],
+        "LEFT: xox + _oox": [
+            {
+                "label": "xox",
+                "value": "N",
+                "children": {}
+            },
+            {
+                "label": "_oox",
+                "value": "P",
+                "children": {
+                    "LEFT: _ + xox": [
+                        {
+                            "label": "_",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "xox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "LEFT:  + _ox": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "_ox",
+                            "value": "N",
+                            "children": {
+                                "LEFT: _ + xx": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xx",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: _ + o": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: o + _o": [
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT: _ + x": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT:  + _o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: _o + ox": [
+                        {
+                            "label": "_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT: _ + x": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT:  + _o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "label": "ox",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ]
+                }
+            }
+        ],
+        "RIGHT: o + xoo_o": [
+            {
+                "label": "o",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "xoo_o",
+                "value": "L",
+                "children": {
+                    "LEFT: x + xoo_": [
+                        {
+                            "label": "x",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "xoo_",
+                            "value": "P",
+                            "children": {
+                                "LEFT: _ + xox": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT:  + xo_": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xo_",
+                                        "value": "N",
+                                        "children": {
+                                            "LEFT: _ + xx": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "xx",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: _ + o": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: o + o_": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + o_": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: o_ + xo": [
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + o_": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "label": "xo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: xo + o_o": [
+                        {
+                            "label": "xo",
+                            "value": "N",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT: x + _o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT:  + o_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: o + o_o": [
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT: x + _o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT:  + o_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT:  + xoo_o": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "xoo_o",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ]
+                }
+            }
+        ],
+        "RIGHT: o + o_oox": [
+            {
+                "label": "o",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "o_oox",
+                "value": "L",
+                "children": {
+                    "LEFT:  + o_ox": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_ox",
+                            "value": "L",
+                            "children": {
+                                "LEFT: o_ + xx": [
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + o_": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "label": "xx",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT:  + o_ox": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_ox",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: o + o_": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + o_": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: x + o_o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: x + _o": [
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {
+                                                        "LEFT: _ + x": [
+                                                            {
+                                                                "label": "_",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "x",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            }
+                                                        ],
+                                                        "RIGHT:  + _o": [
+                                                            {
+                                                                "label": "",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "_o",
+                                                                "value": "L",
+                                                                "children": {}
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "RIGHT:  + o_o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT:  + o_oox": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_oox",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: ox + o_o": [
+                        {
+                            "label": "ox",
+                            "value": "N",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT: x + _o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT:  + o_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: o + o_o": [
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT: x + _o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT:  + o_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "RIGHT: xo + o_oox": [
+            {
+                "label": "xo",
+                "value": "N",
+                "children": {}
+            },
+            {
+                "label": "o_oox",
+                "value": "L",
+                "children": {
+                    "LEFT:  + o_ox": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_ox",
+                            "value": "L",
+                            "children": {
+                                "LEFT: o_ + xx": [
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + o_": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "label": "xx",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT:  + o_ox": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_ox",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: o + o_": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + o_": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: x + o_o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: x + _o": [
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {
+                                                        "LEFT: _ + x": [
+                                                            {
+                                                                "label": "_",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "x",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            }
+                                                        ],
+                                                        "RIGHT:  + _o": [
+                                                            {
+                                                                "label": "",
+                                                                "value": "P",
+                                                                "children": {}
+                                                            },
+                                                            {
+                                                                "label": "_o",
+                                                                "value": "L",
+                                                                "children": {}
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ],
+                                            "RIGHT:  + o_o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT:  + o_oox": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_oox",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: ox + o_o": [
+                        {
+                            "label": "ox",
+                            "value": "N",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT: x + _o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT:  + o_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: o + o_o": [
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT: x + _o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT:  + o_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "RIGHT: ox + xoo_o": [
+            {
+                "label": "ox",
+                "value": "N",
+                "children": {}
+            },
+            {
+                "label": "xoo_o",
+                "value": "L",
+                "children": {
+                    "LEFT: x + xoo_": [
+                        {
+                            "label": "x",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "xoo_",
+                            "value": "P",
+                            "children": {
+                                "LEFT: _ + xox": [
+                                    {
+                                        "label": "_",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xox",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ],
+                                "LEFT:  + xo_": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "xo_",
+                                        "value": "N",
+                                        "children": {
+                                            "LEFT: _ + xx": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "xx",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT: _ + o": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: o + o_": [
+                                    {
+                                        "label": "o",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + o_": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT: o_ + xo": [
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + o_": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "label": "xo",
+                                        "value": "N",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: xo + o_o": [
+                        {
+                            "label": "xo",
+                            "value": "N",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT: x + _o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT:  + o_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: o + o_o": [
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_o",
+                            "value": "L",
+                            "children": {
+                                "LEFT: x + _o": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "_o",
+                                        "value": "L",
+                                        "children": {
+                                            "LEFT: _ + x": [
+                                                {
+                                                    "label": "_",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "x",
+                                                    "value": "P",
+                                                    "children": {}
+                                                }
+                                            ],
+                                            "RIGHT:  + _o": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "_o",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "RIGHT:  + o_o": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_o",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT:  + xoo_o": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "xoo_o",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

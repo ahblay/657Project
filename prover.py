@@ -5,27 +5,67 @@ from node import Node
 from itertools import product
 from functools import lru_cache
 
-def proof_tree(state, game_dict, base_cases, value):
-    node = Node(state, value)
-    pp(game_dict)
+def proof_tree(state, game_dict, base_cases, path_visited=None):
 
-    # x moves
-    node.left_children_x = []
-    node.right_children_x = []
+    if path_visited is None:
+        path_visited = set()
+
+    if "_" not in state:
+        return Node(state, base_cases[state])
+
+    # apply inductive hypothesis
+    if state in path_visited:
+        return Node(state, base_cases[state])
+
+    # mark this node as visited along the current path
+    path_visited.add(state)
+
+    # recursively evaluate all options
+    left_children_x = []
+    right_children_x = []
+    x_values = set()
     for sub1, sub2 in game_dict[state].get('x', []):
-        val1, nodes = evaluate(sub1, game_dict, base_cases, 0, 0)
-        val2, nodes = evaluate(sub2, game_dict, base_cases, 0, 0)
-        node.left_children_x.append(proof_tree(sub1, game_dict, base_cases, val1))
-        node.right_children_x.append(proof_tree(sub2, game_dict, base_cases, val2))
+        child1 = proof_tree(sub1, game_dict, base_cases, path_visited)
+        child2 = proof_tree(sub2, game_dict, base_cases, path_visited)
+        result = outcome_add_cached(child1.value, child2.value)
+        x_values.add(result)
+        left_children_x.append(child1)
+        right_children_x.append(child2)
+        if result in ["L", "P"]:
+            break
 
-    # o moves
-    node.left_children_o = []
-    node.right_children_o = []
+    left_children_o = []
+    right_children_o = []
+    o_values = set()
     for sub1, sub2 in game_dict[state].get('o', []):
-        val1, nodes = evaluate(sub1, game_dict, base_cases, 0, 0)
-        val2, nodes = evaluate(sub2, game_dict, base_cases, 0, 0)
-        node.left_children_o.append(proof_tree(sub1, game_dict, base_cases, val1))
-        node.right_children_o.append(proof_tree(sub2, game_dict, base_cases, val2))
+        child1 = proof_tree(sub1, game_dict, base_cases, path_visited)
+        child2 = proof_tree(sub2, game_dict, base_cases, path_visited)
+        result = outcome_add_cached(child1.value, child2.value)
+        o_values.add(result)
+        left_children_o.append(child1)
+        right_children_o.append(child2)
+        if result in ["R", "P"]:
+            break
+
+    # compute outcoem class
+    values = []
+    for expanded_x_values in expand_outcomes_cached(tuple(x_values)):
+        for expanded_o_values in expand_outcomes_cached(tuple(o_values)):
+            value = compute_value_cached(tuple(expanded_x_values), tuple(expanded_o_values))
+            values.append(value)
+
+    if len(set(values)) == 1:
+        value = values[0]
+    else:
+        value = "U"
+
+    node = Node(state, value)
+    node.left_children_x = left_children_x
+    node.right_children_x = right_children_x
+    node.left_children_o = left_children_o
+    node.right_children_o = right_children_o
+
+    path_visited.remove(state)
 
     return node
 
