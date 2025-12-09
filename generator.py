@@ -2,7 +2,7 @@ from itertools import product
 from utilities import generate_test_sequence, write_to_file, clear_file
 import tree
 from pprint import pp
-from prover import evaluate, proof_tree
+from prover import evaluate, proof_tree, write_status
 from collections import defaultdict
 import json
 import random
@@ -295,22 +295,23 @@ def run(pattern, p, s, name, state, moves=False):
     value, nodes = evaluate(state, game_dict, base_cases, 0, 0)
     print(nodes)
     print(value)
+    write_status("result.txt", nodes, value)
 
-    proof_node = proof_tree(state, game_dict, base_cases)
+    #proof_node = proof_tree(state, game_dict, base_cases)
 
-    with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
-        json.dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
+    #with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
+    #    json.dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
-    test = ["xoo_oox"]
+    test = ["_"]
     all_states = ['_', '_o', '_x', '_xo', '_xx', '_xxx', 'o_', 'o_o', 'o_x', 'o_xo', 'oo_o', 'oo_x', 'oo_xo', 'oxo_x', 'oxo_xo', 'x_', 'x_o', 'x_x', 'x_xo', 'x_xxx', 'xo_x']
     for state in test:
         print("=" * 50 + "(" + state + ")" + "=" * 50)
         #state = "_"
-        pattern = "x"
+        pattern = "xxo"
         prefix = state.split("_")[0]
         suffix = state.split("_")[1]
         p = {tuple(prefix)}
         s = {tuple(suffix)}
-        name = "xooxnoox"
+        name = "xxo"
         run(pattern, p, s, name, state, False)

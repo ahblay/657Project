@@ -73,6 +73,7 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
     nodes += 1
     if nodes % 10000000 == 0:
         print(nodes)
+        write_status("result.txt", nodes)
     #if nodes > 100000000:
     #    return "U", nodes
 
@@ -209,6 +210,11 @@ def outcome_add(a, b):
             return "U"
     else:
         return "U"
+
+def write_status(filename, nodes, outcome="incomplete"):
+    with open(filename, "w") as f:
+        f.write(f"nodes visited: {nodes}\n")
+        f.write(f"outcome: {outcome}")
 
 
 if __name__ == "__main__":
