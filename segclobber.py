@@ -3,7 +3,7 @@ from pathlib import Path
 from pprint import pp
 
 def segclobber(position, player):
-    binary = Path(__file__).parent / "bin" / "segclobber"
+    binary = Path(__file__).parent / "solver" / "src"
     cwd = binary.parent
 
     result = subprocess.run(
