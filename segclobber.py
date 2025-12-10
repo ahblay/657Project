@@ -5,7 +5,7 @@ import os
 
 def segclobber(position, player):
     binary_path = os.environ.get(
-        "SEGCOBBER_BINARY",
+        "SEGCLOBBER_BINARY",
         str(Path(__file__).parent / "bin" / "segclobber")
     )
     binary = Path(binary_path)

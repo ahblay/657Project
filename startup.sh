@@ -40,4 +40,4 @@ else
 
 fi
 
-export SEGCOBBER_BINARY="$BINARY"
+export SEGCLOBBER_BINARY="$BINARY"
