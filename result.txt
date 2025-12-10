@@ -1,2 +1,2 @@
-nodes visited: 20000000
-outcome: incomplete
+nodes visited: 148065
+outcome: ['U']

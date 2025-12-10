@@ -235,6 +235,7 @@ def add_small_positions(game_dict, small_positions):
             sumgames = v[piece]
             new_sumgames = set()
             for sumgame in sumgames:
+                print(sumgame)
                 new_sumgames.add(sumgame)
                 for idx in range(2):
                     if "_" in sumgame[(idx + 1) % 2]:
@@ -251,7 +252,14 @@ def create_cgs_file(pattern_list, q, filename):
         test_sequence = generate_test_sequence(pattern, q, 12)
         write_to_file(test_sequence, f"/Users/abel/CGScript/{filename}")
 
-def run(pattern, p, s, name, state, moves=False):
+def run(state, pattern, p, s, name, moves=False):
+    print(state)
+    print(pattern)
+    pp(p)
+    pp(s)
+    print(name)
+    print("#" * 50)
+
     q = tuple(pattern)
     
     if moves:
@@ -272,6 +280,7 @@ def run(pattern, p, s, name, state, moves=False):
         symmetries_dict = get_symmetries_dict(symmetries)
         all_subgames = sorted(list(symmetries_dict.values()))
         print(symmetries_dict)
+        print(all_subgames)
 
         game_dict = {}
         for subgame in all_subgames:
@@ -281,9 +290,12 @@ def run(pattern, p, s, name, state, moves=False):
             o_cleaned = tree.clean(children['o'])
             o_simplified = tree.simplify(o_cleaned, symmetries_dict)
 
-            game_dict[subgame] = {'x': tuple(x_simplified), 'o': tuple(o_simplified)}
+            xxo_conj_simplified = tree.simplify(tree.xxo_conjecture(subgame, pattern), symmetries_dict)
+
+            game_dict[subgame] = {'x': tuple(xxo_conj_simplified), 'o': tuple(o_simplified)}
         
     print("&" * 40)
+    pp(game_dict)
 
     base_cases, small = segclobber.compute_all_base_cases(all_subgames, 
                                                    ["".join(s) for s in small], 
@@ -291,10 +303,10 @@ def run(pattern, p, s, name, state, moves=False):
                                                    10)
     base_cases["xxo"] = "L"
     #pp(small)
-    game_dict = add_small_positions(game_dict, small)
+    #game_dict = add_small_positions(game_dict, small)
 
     print("&" * 40)
-    #pp(game_dict)
+    pp(game_dict)
     #print("&" * 40)
 
     value, nodes = evaluate(state, game_dict, base_cases, 0, 0)
@@ -302,21 +314,21 @@ def run(pattern, p, s, name, state, moves=False):
     print(value)
     write_status("result.txt", nodes, value)
 
-    #proof_node = proof_tree(state, game_dict, base_cases)
-
-    #with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
-    #    json.dump(proof_node.to_json(), f, ensure_ascii=False, indent=4)
+    if name:
+        proof_node = proof_tree(state, game_dict, base_cases)
+        with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
+            json.dump(proof_node.to_json(0, 3), f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
-    test = ["_"]
+    test = ["xxoo_"]
     all_states = ['_', '_o', '_x', '_xo', '_xx', '_xxx', 'o_', 'o_o', 'o_x', 'o_xo', 'oo_o', 'oo_x', 'oo_xo', 'oxo_x', 'oxo_xo', 'x_', 'x_o', 'x_x', 'x_xo', 'x_xxx', 'xo_x']
     for state in test:
         print("=" * 50 + "(" + state + ")" + "=" * 50)
         #state = "_"
-        pattern = "xxo"
+        pattern = "x"
         prefix = state.split("_")[0]
         suffix = state.split("_")[1]
         p = {tuple(prefix)}
         s = {tuple(suffix)}
-        name = "xxo"
-        run(pattern, p, s, name, state, False)
+        name = "xxooxn"
+        run(state, pattern, p, s, name, False)

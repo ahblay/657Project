@@ -1,9 +1,14 @@
 import subprocess
 from pathlib import Path
 from pprint import pp
+import os
 
 def segclobber(position, player):
-    binary = Path(__file__).parent / "solver" / "src" / "segclobber"
+    binary_path = os.environ.get(
+        "SEGCOBBER_BINARY",
+        str(Path(__file__).parent / "bin" / "segclobber")
+    )
+    binary = Path(binary_path)
     cwd = binary.parent
 
     result = subprocess.run(
@@ -80,4 +85,4 @@ if __name__ == "__main__":
     #pp(bc)    
     #pp(sbc)
 
-    print(get_outcome_class("xoooxxxxxxxxxxxxxxxxxxxxxxxxo"))
+    print(get_outcome_class("xxooxxxxxxxxxxxxxxxxxxxxxxxx"))

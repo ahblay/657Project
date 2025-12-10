@@ -1,6 +1,30 @@
 import re
 from pprint import pp
 
+def xxo_conjecture(position, q):
+    left_index = position.index('_')
+    right_index = left_index - len(position) + 1
+    #print(f"\nleft index : {left_index}")
+    #print(f"right index: {right_index}")
+    position = position.replace('_', q*4)
+    for i, piece in enumerate(position):
+        if piece == "x":
+            label = list(position)
+            label[i] = piece.upper()
+            #print(''.join(label))
+
+            left_move, right_move = make_move(position, i)
+            #print(f"left move: {left_move}")
+            #print(f"right move: {right_move}")
+            if right_move:
+                simplified_position = sorted([
+                    reduce(right_move[0], q, left_index, left_index+len(q)*4), 
+                    reduce(right_move[1], q, right_index-len(q)*4, right_index)])
+                #print(simplified_position)
+                return clean({tuple(simplified_position)})
+    return ()
+
+
 def find_moves(position, q):
     children = {"x": set(), "o": set()}
     left_index = position.index('_')
@@ -119,9 +143,9 @@ def make_move(pattern, index):
     return [move_left, move_right]
 
 def main():
-    children = find_moves('xoo_', 'x')
+    children = xxo_conjecture('xo_', 'xxo')
     pp(children)
-    pp(clean(children['o']))
+    #pp(clean(children['o']))
 
 if __name__ == "__main__":
     main()

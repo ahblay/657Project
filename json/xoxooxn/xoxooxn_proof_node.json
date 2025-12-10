@@ -1,0 +1,232 @@
+{
+    "label": "xoxoo_",
+    "value": "N",
+    "children": {
+        "LEFT:  + xxoo_": [
+            {
+                "label": "",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "xxoo_",
+                "value": "P",
+                "children": {
+                    "LEFT: x + xo_": [
+                        {
+                            "label": "x",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "xo_",
+                            "value": "N",
+                            "children": {
+                                "LEFT:  + x_": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "x_",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: x + o_": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "P",
+                                        "children": {
+                                            "RIGHT:  + o_": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: o_ + xxo": [
+                        {
+                            "label": "o_",
+                            "value": "P",
+                            "children": {
+                                "RIGHT:  + o_": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "label": "xxo",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: o_ + xo": [
+                        {
+                            "label": "o_",
+                            "value": "P",
+                            "children": {
+                                "RIGHT:  + o_": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "label": "xo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ]
+                }
+            }
+        ],
+        "RIGHT: o + xoo_": [
+            {
+                "label": "o",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "xoo_",
+                "value": "R",
+                "children": {
+                    "LEFT:  + xo_": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "xo_",
+                            "value": "N",
+                            "children": {
+                                "LEFT:  + x_": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "x_",
+                                        "value": "P",
+                                        "children": {}
+                                    }
+                                ],
+                                "RIGHT: x + o_": [
+                                    {
+                                        "label": "x",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "P",
+                                        "children": {
+                                            "RIGHT:  + o_": [
+                                                {
+                                                    "label": "",
+                                                    "value": "P",
+                                                    "children": {}
+                                                },
+                                                {
+                                                    "label": "o_",
+                                                    "value": "L",
+                                                    "children": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "RIGHT: o_ + xo": [
+                        {
+                            "label": "o_",
+                            "value": "P",
+                            "children": {
+                                "RIGHT:  + o_": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "label": "xo",
+                            "value": "N",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: o + o_": [
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_",
+                            "value": "P",
+                            "children": {
+                                "RIGHT:  + o_": [
+                                    {
+                                        "label": "",
+                                        "value": "P",
+                                        "children": {}
+                                    },
+                                    {
+                                        "label": "o_",
+                                        "value": "L",
+                                        "children": {}
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
