@@ -307,6 +307,7 @@ def run(state, pattern, p, s, name=None, moves=False):
     '''
     q = tuple(pattern)
     
+    print("Building dictionary of possible moves...")
     if moves:
         with open(f'json/{name}/{name}_game_dict.json', 'r') as f:
             game_dict = json.load(f)
@@ -338,6 +339,7 @@ def run(state, pattern, p, s, name=None, moves=False):
             game_dict[subgame] = {'x': tuple(x_simplified), 'o': tuple(o_simplified)}
    
     # compute small game values automatically with SEGClobber
+    print("Computing base cases with SEGClobber...")
     base_cases, small = segclobber.compute_all_base_cases(all_subgames, 
                                                    ["".join(s) for s in small], 
                                                    pattern, 
@@ -345,9 +347,9 @@ def run(state, pattern, p, s, name=None, moves=False):
     
     # update game dictionary with small irregular games
     game_dict = add_small_positions(game_dict, small)
-    pp(game_dict)
 
     # call inductive search
+    print("Evaluating outcome class...")
     value, nodes = evaluate(state, game_dict, base_cases, 0, 0)
 
     # periodically write status to file to log long runtimes
@@ -355,12 +357,13 @@ def run(state, pattern, p, s, name=None, moves=False):
 
     # optionally save state space tree as a JSON file
     if name:
+        print("Computing JSON proof tree...")
         folder = f"json/{name}"
         os.makedirs(folder, exist_ok=True)
         proof_node = proof_tree(state, game_dict, base_cases)
-        with open(f'folder/{name}_proof_node.json', 'w', encoding='utf-8') as f:
+        with open(f'{folder}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
             json.dump(proof_node.to_json(0, 3), f, ensure_ascii=False, indent=4)
-    
+        print(f"Tree saved to {folder}/{name}_proof_node.json")
     return value
 
 if __name__ == "__main__":

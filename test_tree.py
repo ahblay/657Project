@@ -8,6 +8,7 @@ def normalize(l):
     return sorted(result)
 
 @pytest.mark.parametrize("position, q, expected", [
+    ("_", "x", {}),
     ("_", "xxo", {('x', 'x_')}),
     ("xx_", "xxo", {('xxx', 'x_')}),
     ("o_o", "xxo", {('ox', 'x_o')}),

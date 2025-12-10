@@ -35,24 +35,17 @@ def find_moves(position, q):
     children = {"x": set(), "o": set()}
     left_index = position.index('_')
     right_index = left_index - len(position) + 1
-    #print(f"\nleft index : {left_index}")
-    #print(f"right index: {right_index}")
+
     position = position.replace('_', q*4)
     for i, piece in enumerate(position):
-        label = list(position)
-        label[i] = piece.upper()
-        #print(''.join(label))
 
         left_move, right_move = make_move(position, i)
-        #print(f"left move: {left_move}")
-        #print(f"right move: {right_move}")
 
         for move in make_move(position, i):
             if move:
                 simplified_position = sorted([
                     reduce(move[0], q, left_index, left_index+len(q)*4), 
                     reduce(move[1], q, right_index-len(q)*4, right_index)])
-                #print(simplified_position)
                 children[piece].add(tuple(simplified_position))
     return children
 
