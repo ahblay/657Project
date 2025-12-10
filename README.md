@@ -11,6 +11,7 @@ You will need a compiled binary of **SEGClobber**. This project contains the pre
 
    ```bash
    ./startup.sh
+   export SEGCLOBBER_BINARY=$(pwd)/solver/src/segclobber
    ```
 
    This will save the path to the pre-compiled SEGClobber binary as an environment variable.
@@ -22,13 +23,14 @@ You will need a compiled binary of **SEGClobber**. This project contains the pre
 
    ```bash
    ./startup.sh compile
+   export SEGCLOBBER_BINARY=$(pwd)/solver/src/segclobber
    ```
 
    The `compile` flag will clone and compile the SEGClobber binary and set the path to it as an environment variable.
 
 ### Troubleshooting
 
-If you encounter any errors with SEGClobber, run ```./startup.sh compile``` to clone and compile the binary locally. Then manually set the path to the binary with ```export SEGCLOBBER_BINARY=$(pwd)/solver/src/segclobber```.
+If you encounter any errors with SEGClobber on Mac, run ```./startup.sh compile``` to clone and compile the binary locally. Then manually set the path to the binary with ```export SEGCLOBBER_BINARY=$(pwd)/solver/src/segclobber```.
 
 ---
 
