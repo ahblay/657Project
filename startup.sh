@@ -26,10 +26,11 @@ if [ "$1" == "compile" ]; then
     BINARY="$SRC_DIR/src/segclobber"
     if [ -f "$BINARY" ]; then
         echo "Solver successfully compiled and placed in $SRC_DIR/src"
+        export SEGCLOBBER_BINARY="$BINARY"
     else
         echo "Compilation failed."
         BINARY="$ROOT_DIR/bin/segclobber"
-        export SEGCOBBER_BINARY="$BINARY"
+        export SEGCLOBBER_BINARY="$BINARY"
         exit 1
     fi
 
