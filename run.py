@@ -20,7 +20,8 @@ def main():
 
     args = parser.parse_args()
 
-    generator.run(args.state, args.q, parse(args.prefixes), parse(args.suffixes), args.json)
+    outcome = generator.run(args.state, args.q, parse(args.prefixes), parse(args.suffixes), args.json)
+    print(outcome)
 
 if __name__ == "__main__":
     main()

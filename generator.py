@@ -3,10 +3,10 @@ from utilities import generate_test_sequence, write_to_file, clear_file
 import tree
 from pprint import pp
 from prover import evaluate, proof_tree, write_status
-from collections import defaultdict
 import json
 import random
 import segclobber
+import os
 
 def simulate_move(q, x):
     '''
@@ -172,7 +172,6 @@ def find_symmetries_xxo(prefixes, suffixes, q):
     :return result: list of lists of (prefix, suffix) tuples, where each internal list catalogues symmetric positions
     '''
     patterns = list(product(prefixes, suffixes))
-    print(patterns)
     result = []
     for pattern in patterns:
         p = pattern[0]
@@ -186,7 +185,6 @@ def find_symmetries_xxo(prefixes, suffixes, q):
         if new_s[:len(q)] == q:
             new_s = new_s[len(q):]
         
-        #TODO: Is this necessary?
         if (tuple(new_p), tuple(new_s)) in patterns:
             result.append([(tuple(new_p), tuple(new_s)), pattern])
     return result
@@ -224,7 +222,6 @@ def print_patterns(p):
     for i in p:
         result.append("_".join("".join(inner) for inner in i))
     print(result)
-    #print(len(result))
     return
 
 def add_small_positions(game_dict, small_positions):
@@ -236,7 +233,6 @@ def add_small_positions(game_dict, small_positions):
             sumgames = v[piece]
             new_sumgames = set()
             for sumgame in sumgames:
-                print(sumgame)
                 new_sumgames.add(sumgame)
                 for idx in range(2):
                     if "_" in sumgame[(idx + 1) % 2]:
@@ -254,13 +250,6 @@ def create_cgs_file(pattern_list, q, filename):
         write_to_file(test_sequence, f"/Users/abel/CGScript/{filename}")
 
 def run(state, pattern, p, s, name, moves=False):
-    print(state)
-    print(pattern)
-    pp(p)
-    pp(s)
-    print(name)
-    print("#" * 50)
-
     q = tuple(pattern)
     
     if moves:
@@ -269,9 +258,6 @@ def run(state, pattern, p, s, name, moves=False):
     
     else:
         prefixes, suffixes, small = generate_patterns(p, s, q)
-        print_set(prefixes)
-        print_set(suffixes)
-        print_set(small)
 
         if pattern == "xxo":
             symmetries = find_symmetries_xxo(prefixes, suffixes, q)
@@ -280,8 +266,6 @@ def run(state, pattern, p, s, name, moves=False):
 
         symmetries_dict = get_symmetries_dict(symmetries)
         all_subgames = sorted(list(symmetries_dict.values()))
-        print(symmetries_dict)
-        print(all_subgames)
 
         game_dict = {}
         for subgame in all_subgames:
@@ -294,30 +278,22 @@ def run(state, pattern, p, s, name, moves=False):
             #xxo_conj_simplified = tree.simplify(tree.xxo_conjecture(subgame, pattern), symmetries_dict)
 
             game_dict[subgame] = {'x': tuple(x_simplified), 'o': tuple(o_simplified)}
-        
-    print("&" * 40)
-    pp(game_dict)
 
     base_cases, small = segclobber.compute_all_base_cases(all_subgames, 
                                                    ["".join(s) for s in small], 
                                                    pattern, 
                                                    10)
-    base_cases["xxo"] = "L"
-    #pp(small)
     game_dict = add_small_positions(game_dict, small)
 
-    print("&" * 40)
-    pp(game_dict)
-    #print("&" * 40)
-
     value, nodes = evaluate(state, game_dict, base_cases, 0, 0)
-    print(nodes)
-    print(value)
+
     write_status("result.txt", nodes, value)
 
     if name:
+        folder = f"json/{name}"
+        os.makedirs(folder, exist_ok=True)
         proof_node = proof_tree(state, game_dict, base_cases)
-        with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
+        with open(f'folder/{name}_proof_node.json', 'w', encoding='utf-8') as f:
             json.dump(proof_node.to_json(0, 3), f, ensure_ascii=False, indent=4)
     
     return value
