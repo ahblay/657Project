@@ -1,2 +1,2 @@
-nodes visited: 148065
-outcome: ['U']
+nodes visited: 27
+outcome: P

@@ -95,31 +95,21 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
 
     # recursively evaluate all options
     x_values = set()
-    found = False
     for sub1, sub2 in game_dict[state].get('x', []):
         val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
         val2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
-        for possible_outcome in expand_outcomes_cached((tuple(val1), tuple(val2))):
-            result = outcome_add_cached(tuple(possible_outcome))
-            x_values.add(result)
-            if result in ["L", "P"]:
-                found = True
-                break
-        if found:
+        result = outcome_add_cached(val1, val2)
+        x_values.add(result)
+        if result in ["L", "P"]:
             break
-        
-    found = False
+
     o_values = set()
     for sub1, sub2 in game_dict[state].get('o', []):
         val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
         val2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
-        for possible_outcome in expand_outcomes_cached((tuple(val1), tuple(val2))):
-            result = outcome_add_cached(tuple(possible_outcome))
-            o_values.add(result)
-            if result in ["R", "P"]:
-                found = True
-                break
-        if found:
+        result = outcome_add_cached(val1, val2)
+        o_values.add(result)
+        if result in ["R", "P"]:
             break
 
     # compute outcoem class
@@ -134,15 +124,13 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
     else:
         value = "U"
 
-    value = list(set(values))
-
     path_visited.pop(state)
 
     return value, nodes
 
 @lru_cache(None)
-def outcome_add_cached(summands):
-    return outcome_add(summands[0], summands[1])
+def outcome_add_cached(a, b):
+    return outcome_add(a, b)
 
 @lru_cache(None)
 def expand_outcomes_cached(values_tuple):
@@ -171,10 +159,6 @@ def compute_value(position):
     else:
         right_can_win = False
 
-    if left_can_win and right_can_win is None:
-        return ["L", "N"]
-    if left_can_win is None and right_can_win:
-        return ["R", "N"]
     if left_can_win is None or right_can_win is None:
         return "U"
     if left_can_win and right_can_win:

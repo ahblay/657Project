@@ -290,9 +290,9 @@ def run(state, pattern, p, s, name, moves=False):
             o_cleaned = tree.clean(children['o'])
             o_simplified = tree.simplify(o_cleaned, symmetries_dict)
 
-            xxo_conj_simplified = tree.simplify(tree.xxo_conjecture(subgame, pattern), symmetries_dict)
+            #xxo_conj_simplified = tree.simplify(tree.xxo_conjecture(subgame, pattern), symmetries_dict)
 
-            game_dict[subgame] = {'x': tuple(xxo_conj_simplified), 'o': tuple(o_simplified)}
+            game_dict[subgame] = {'x': tuple(x_simplified), 'o': tuple(o_simplified)}
         
     print("&" * 40)
     pp(game_dict)
@@ -303,7 +303,7 @@ def run(state, pattern, p, s, name, moves=False):
                                                    10)
     base_cases["xxo"] = "L"
     #pp(small)
-    #game_dict = add_small_positions(game_dict, small)
+    game_dict = add_small_positions(game_dict, small)
 
     print("&" * 40)
     pp(game_dict)
