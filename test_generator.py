@@ -9,6 +9,10 @@ def normalize(obj):
         return frozenset(normalize(x) for x in obj)
     return obj
 
+def split_p_s(item: str):
+    p, s = item.split("_", 1)
+    return tuple(p), tuple(s)
+
 @pytest.mark.parametrize("q, pieces, expected", [
     ("", [], set()),
     ("", ["x"], set()),
@@ -57,7 +61,7 @@ def test_get_suffixes(suffixes, q, expected):
 @pytest.mark.parametrize("pattern, q, expected", [
     ("o", "x", {"x", ""}),
     ("xxox", "x", {"xx", "x", "xo", "xxx"}),
-    ("xoxoxo", "xxo", {"xoxoo", "xoxo", "xoxx", "xox", "xoo", "xo", "xx", "x", "o", "", "xoxox", "xoxoxx"}),
+    ("xoxoxo", "xxo", {"xoxoo", "xoxo", "xoxx", "xox", "xoo", "xo", "xx", "x", "o", "", "xoxox", "xoxoxx", "xoxoxox", "xoxoxoxo", "xoxoxoxx", "xoxoxoxxx"}),
     ("xxxooo", "x", {"xxxoox", "xxxoo", "xxo", "xx"}),
     ("", "", {})
 ])
@@ -67,12 +71,13 @@ def test_get_small_positions(pattern, q, expected):
     expected = {tuple(p) for p in expected}
     assert generator.get_small_positions(pattern, q) == expected
 
-#TODO: fix these test cases!
 @pytest.mark.parametrize("prefixes, suffixes, q, expected", [
     ({"o"}, {"o"}, "x", {"x", ""}),
     ({"xxox"}, {"oxxo"}, "x", {"xx", "x", "xo", "xxx", "xxxo", "xxo", "oxo", "xo", ""}),
-    ({"x", "o", "xo", "oo", "oxo"}, {"x", "o", "xo", "xx", "xxx"}, "xxo", {"", "x", "o", "xx", "ox", "oxx", "oo"}),
-    ({}, {}, "", {})
+    ({"x", "o"}, {}, "xxo", {"xxo", "xx", "xxx", "xxxx", "", "x", "ox", "oxo", "oxx", "oxxx", "xo"}),
+    ({}, {}, "", {}),
+    ({}, {}, "xxo", {"x", "xo", "xx", "xxx", "", "oxo"}),
+    ({}, {"o"}, "ox", {"", "x", "o", "oo", "xxo", "xo", "xx"})
 ])
 def test_generate_small_patterns(prefixes, suffixes, q, expected):
     q = tuple(q)
@@ -81,15 +86,27 @@ def test_generate_small_patterns(prefixes, suffixes, q, expected):
     expected = {tuple(p) for p in expected}
     assert generator.generate_small_patterns(prefixes, suffixes, q) == expected
 
-'''
+@pytest.mark.parametrize("prefixes, suffixes, q, p, s", [
+    ({}, {}, "xxo", {"", "x", "o", "xo", "oo", "oxo"}, {"", "x", "o", "xo", "xx", "xxx"})
+])
+def test_generate_patterns(prefixes, suffixes, q, p, s):
+    q = tuple(q)
+    prefixes = {tuple(p) for p in prefixes}
+    suffixes = {tuple(s) for s in suffixes}
+    p = {tuple(i) for i in p}
+    s = {tuple(i) for i in s}
+    pfxs, sfxs, sm = generator.generate_patterns(prefixes, suffixes, q)
+    small = generator.generate_small_patterns(pfxs, sfxs, q)
+    assert generator.generate_patterns(prefixes, suffixes, q) == (p, s, small)
+
 @pytest.mark.parametrize("prefixes, suffixes, q, expected", [
-    ({"xxox"}, {"oxxo"}, "x", {{"_", "o_xx"}})
+    ({"o"}, {""}, "xxo", [["o_", "o_"]])
+    #({"x", "oo"}, {"o", "xxx"}, "xxo", [["oo_o", "oo_o"], ["oo_xxx", "x_o"], ["x_xxx", "x_xxx"], ["x_o", "oo_xxx"]])
 ])
 def test_find_symmetries_xxo(prefixes, suffixes, q, expected):
     q = tuple(q)
     prefixes = {tuple(p) for p in prefixes}
     suffixes = {tuple(s) for s in suffixes}
-    expected = {tuple(p) for p in expected}
+    expected = [[split_p_s(item) for item in group] for group in expected]
     assert generator.find_symmetries_xxo(prefixes, suffixes, q) == expected
-'''
-    
+  

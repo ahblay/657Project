@@ -101,16 +101,16 @@ def get_small_positions(pattern, q):
     #print(f"pattern: {pattern}")
     #print(f"q: {q}")
     small = set()
-    if pattern and pattern[-1] != q[0]: # if pattern is non-empty and a move is possible
-        small.add(pattern[:-1]) # capturing to the right
-        small.add(pattern[:-1] + (q[0],)) # capturing to the left
+    if q and q[-1] != q[0]: # if a move can be made between copies of q
+        small.add(pattern + q[:-1]) # capturing to the right
+        small.add(pattern + q[:-1] + (q[0],)) # capturing to the left
+    pattern = pattern + q
     for i, item in enumerate(pattern): 
         if pattern[i+1:] and item != pattern[i+1]: # if a move is possible
             small.add(pattern[:i]) # capturing to the right
             small.add(pattern[:i] + (pattern[i+1],)) # capturing to the left
     return small
 
-#TODO: This function is a bit weird. It doesn't handle the case where a small position results from part of q and a suffix or prefix
 def generate_small_patterns(prefixes, suffixes, q):
     '''
     Given a set of prefixes and suffixes and a repeating pattern q, find 
@@ -127,8 +127,8 @@ def generate_small_patterns(prefixes, suffixes, q):
     for suffix in suffixes:
         reversed_small_suffixes = get_small_positions(suffix[::-1], q[::-1])
         small.update([s[::-1] for s in reversed_small_suffixes])
-    small.update(get_small_positions(q, q))
-    reversed_small_q = get_small_positions(q[::-1], q[::-1])
+    small.update(get_small_positions(tuple(), q))
+    reversed_small_q = get_small_positions(tuple(), q[::-1])
     small.update([s[::-1] for s in reversed_small_q])
     return small
 
@@ -172,6 +172,7 @@ def find_symmetries_xxo(prefixes, suffixes, q):
     :return result: list of lists of (prefix, suffix) tuples, where each internal list catalogues symmetric positions
     '''
     patterns = list(product(prefixes, suffixes))
+    print(patterns)
     result = []
     for pattern in patterns:
         p = pattern[0]
