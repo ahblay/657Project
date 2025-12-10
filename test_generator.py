@@ -109,4 +109,15 @@ def test_find_symmetries_xxo(prefixes, suffixes, q, expected):
     suffixes = {tuple(s) for s in suffixes}
     expected = [[split_p_s(item) for item in group] for group in expected]
     assert generator.find_symmetries_xxo(prefixes, suffixes, q) == expected
+
+@pytest.mark.parametrize("state, pattern, prefixes, suffixes, expected", [
+    ("xo_ox", "x", {"xo"}, {"ox"}, "P"),
+    ("xoxoo_", "x", {"xoxoo"}, {""}, "N"),
+    ("o_", "x", {"o"}, {""}, "L"),
+    ("_", "x", {""}, {""}, "P")
+])
+def test_run(state, pattern, prefixes, suffixes, expected):
+    prefixes = {tuple(p) for p in prefixes}
+    suffixes = {tuple(s) for s in suffixes}
+    assert generator.run(state, pattern, prefixes, suffixes, None) == expected 
   

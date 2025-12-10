@@ -82,7 +82,6 @@ def simplify(children, symmetry_dict):
         result.add(tuple(new_child))
     return result
 
-# TODO: there's a problem when q is contained within a prefix or suffix
 def reduce(s, term, lb, ub):
     """Takes a string s and a term and removes the first occurrence of (term)^n for n > 0."""
     lowerbound = lb #if (lb is None or lb >= 0) else len(s) + lb

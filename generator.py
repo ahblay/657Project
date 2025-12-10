@@ -319,6 +319,8 @@ def run(state, pattern, p, s, name, moves=False):
         proof_node = proof_tree(state, game_dict, base_cases)
         with open(f'json/{name}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
             json.dump(proof_node.to_json(0, 3), f, ensure_ascii=False, indent=4)
+    
+    return value
 
 if __name__ == "__main__":
     test = ["xxoo_"]
