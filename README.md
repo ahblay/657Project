@@ -34,7 +34,7 @@ If you encounter any errors with SEGClobber on Mac, run ```./startup.sh compile`
 
 ## Running the Solver
 
-The solver is executed using `python run.py` with the following flags:
+The solver is executed using `python3 run.py` with the following flags:
 
 * `--state` : The starting position to solve, given as a string `"{p}_{s}"`, where `p` and `s` are both xo-strings, and `_` represents a repeating pattern.
 * `--q` : The repeating pattern represented by `_`.
@@ -45,7 +45,7 @@ The solver is executed using `python run.py` with the following flags:
 ### Example
 
 ```bash
-python run.py --state xo_ --q x --prefixes xo --json example
+python3 run.py --state xo_ --q x --prefixes xo --json example
 ```
 
 This command will solve the outcome class of the game `xo(x)^n = xox...x` and write the game tree as a JSON file to `json/example/example_proof_node.json`.
@@ -63,7 +63,7 @@ Try running the following commands and copying the JSON output to [https://jsont
 1. **Test 1**
 
    ```bash
-   python run.py --state o_ --q x --prefixes o --json example1
+   python3 run.py --state o_ --q x --prefixes o --json example1
    ```
 
    This will solve the game `o(x)^n = ox...x`.
@@ -72,7 +72,7 @@ Try running the following commands and copying the JSON output to [https://jsont
 2. **Test 2**
 
    ```bash
-   python run.py --state xxo_ --q x --prefixes xxo --json example2
+   python3 run.py --state xxo_ --q x --prefixes xxo --json example2
    ```
 
    This will solve the game `xxo(x)^n = xxox...x`.
@@ -81,7 +81,7 @@ Try running the following commands and copying the JSON output to [https://jsont
 3. **Test 3**
 
    ```bash
-   python run.py --state oox_ --q o --prefixes oox --json example3
+   python3 run.py --state oox_ --q o --prefixes oox --json example3
    ```
 
    This will solve the game `oox(o)^n = ooxo...o`.
@@ -90,8 +90,8 @@ Try running the following commands and copying the JSON output to [https://jsont
 4. **Test 4**
 
    ```bash
-   python run.py --state xoo_ox --q x --prefixes xoo --suffixes ox --json example4
+   python3 run.py --state xoo_ox --q x --prefixes xoo --suffixes ox --json example4
    ```
 
    This will solve the game `xoo(x)^nox = xxox...xox`.
-   **Expected outcome:** `N` (next player to move loses)
+   **Expected outcome:** `N` (next player to move wins)

@@ -1,2 +1,2 @@
-nodes visited: 167
+nodes visited: 83
 outcome: N
