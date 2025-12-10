@@ -28,7 +28,7 @@ You will need a compiled binary of **SEGClobber**. This project contains the pre
 
 ### Troubleshooting
 
-If you encounter any errors with SEGClobber on Mac, run ```./startup.sh compile``` to clone and compile the binary locally.
+If you encounter any errors with SEGClobber on Mac, run ```./startup.sh compile``` to clone and compile the binary locally. Then manually set the path to the binary with ```export SEGCLOBBER_BINARY=$(pwd)/solver/src/segclobber```.
 
 ---
 

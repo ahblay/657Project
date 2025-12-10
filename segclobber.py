@@ -9,7 +9,6 @@ def segclobber(position, player):
         str(Path(__file__).parent / "bin" / "segclobber")
     )
     binary = Path(binary_path)
-    cwd = binary.parent
 
     result = subprocess.run(
         [str(binary), str(position), str(player)],
@@ -17,7 +16,6 @@ def segclobber(position, player):
         text=True,
         check=True,
         timeout=100,
-        cwd=cwd
     )
 
     winning_player = result.stdout[0]
