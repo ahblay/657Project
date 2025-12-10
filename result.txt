@@ -1,2 +1,2 @@
-nodes visited: 1
-outcome: P
+nodes visited: 167
+outcome: N

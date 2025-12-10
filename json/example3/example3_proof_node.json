@@ -1,0 +1,67 @@
+{
+    "label": "oox_",
+    "value": "R",
+    "children": {
+        "LEFT: _ + ox": [
+            {
+                "label": "_",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "ox",
+                "value": "N",
+                "children": {}
+            }
+        ],
+        "LEFT: oo + x_": [
+            {
+                "label": "oo",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "x_",
+                "value": "R",
+                "children": {
+                    "LEFT:  + x_": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "x_",
+                            "value": "R",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT: _ + o": [
+                        {
+                            "label": "_",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o",
+                            "value": "P",
+                            "children": {}
+                        }
+                    ]
+                }
+            }
+        ],
+        "RIGHT: _ + ooo": [
+            {
+                "label": "_",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "ooo",
+                "value": "P",
+                "children": {}
+            }
+        ]
+    }
+}
