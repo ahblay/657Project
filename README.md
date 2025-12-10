@@ -58,7 +58,7 @@ This command will solve the outcome class of the game `xo(x)^n = xox...x` and wr
 
 ## Simple Tests
 
-Try running the following commands and copy the JSON output to [https://jsontree.vercel.app/](https://jsontree.vercel.app/):
+Try running the following commands and copying the JSON output to [https://jsontree.vercel.app/](https://jsontree.vercel.app/):
 
 1. **Test 1**
 
@@ -66,6 +66,7 @@ Try running the following commands and copy the JSON output to [https://jsontree
    python run.py --state o_ --q x --prefixes o --json example1
    ```
 
+   This will solve the game `o(x)^n = ox...x`.
    **Expected outcome:** `L` (x wins)
 
 2. **Test 2**
@@ -74,6 +75,7 @@ Try running the following commands and copy the JSON output to [https://jsontree
    python run.py --state xxo_ --q x --prefixes xxo --json example2
    ```
 
+   This will solve the game `xxo(x)^n = xxox...x`.
    **Expected outcome:** `L` (x wins)
 
 3. **Test 3**
@@ -82,6 +84,7 @@ Try running the following commands and copy the JSON output to [https://jsontree
    python run.py --state oox_ --q o --prefixes oox --json example3
    ```
 
+   This will solve the game `oox(o)^n = ooxo...o`.
    **Expected outcome:** `R` (mirror of example2)
 
 4. **Test 4**
@@ -90,4 +93,5 @@ Try running the following commands and copy the JSON output to [https://jsontree
    python run.py --state xoo_ox --q x --prefixes xoo --suffixes ox --json example4
    ```
 
+   This will solve the game `xoo(x)^nox = xxox...xox`.
    **Expected outcome:** `N` (next player to move loses)
