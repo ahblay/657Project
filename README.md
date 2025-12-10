@@ -1,4 +1,4 @@
-# SEGClobber Solver Setup and Usage
+# Clobber Solver
 
 ## Setup
 
