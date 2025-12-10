@@ -4,7 +4,6 @@ import tree
 from pprint import pp
 from prover import evaluate, proof_tree, write_status
 import json
-import random
 import segclobber
 import os
 
@@ -334,10 +333,10 @@ def run(state, pattern, p, s, name=None, moves=False):
             o_cleaned = tree.clean(children['o'])
             o_simplified = tree.simplify(o_cleaned, symmetries_dict)
 
-            #xxo_conj_simplified = tree.simplify(tree.xxo_conjecture(subgame, pattern), symmetries_dict)
+            xxo_conj_simplified = tree.simplify(tree.xxo_conjecture(subgame, pattern), symmetries_dict)
 
             game_dict[subgame] = {'x': tuple(x_simplified), 'o': tuple(o_simplified)}
-
+   
     # compute small game values automatically with SEGClobber
     base_cases, small = segclobber.compute_all_base_cases(all_subgames, 
                                                    ["".join(s) for s in small], 
@@ -346,6 +345,7 @@ def run(state, pattern, p, s, name=None, moves=False):
     
     # update game dictionary with small irregular games
     game_dict = add_small_positions(game_dict, small)
+    pp(game_dict)
 
     # call inductive search
     value, nodes = evaluate(state, game_dict, base_cases, 0, 0)

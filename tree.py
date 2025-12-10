@@ -2,30 +2,36 @@ import re
 from pprint import pp
 
 def xxo_conjecture(position, q):
+    '''
+    Returns the sumgame tuple resulting from making the leftmost move by x, capturing to the right.
+
+    :param position: a position of the form "p_s"
+    :param q: the repeating pattern
+    :returns sumgame: a set containing a tuple with the two resulting subgames
+    '''
     left_index = position.index('_')
     right_index = left_index - len(position) + 1
-    #print(f"\nleft index : {left_index}")
-    #print(f"right index: {right_index}")
     position = position.replace('_', q*4)
     for i, piece in enumerate(position):
         if piece == "x":
-            label = list(position)
-            label[i] = piece.upper()
-            #print(''.join(label))
 
             left_move, right_move = make_move(position, i)
-            #print(f"left move: {left_move}")
-            #print(f"right move: {right_move}")
             if right_move:
                 simplified_position = sorted([
                     reduce(right_move[0], q, left_index, left_index+len(q)*4), 
                     reduce(right_move[1], q, right_index-len(q)*4, right_index)])
-                #print(simplified_position)
-                return clean({tuple(simplified_position)})
+                return {tuple(simplified_position)}
     return ()
 
 
 def find_moves(position, q):
+    '''
+    Returns set of sumgame tuples resulting from all moves in position.
+
+    :param position: a position of the form "p_s"
+    :param q: the repeating pattern
+    :returns children: a set containing tuples of all resulting sumgames
+    '''
     children = {"x": set(), "o": set()}
     left_index = position.index('_')
     right_index = left_index - len(position) + 1
@@ -51,25 +57,48 @@ def find_moves(position, q):
     return children
 
 def clean(children):
-    groups = {}
+    '''
+    Takes a list of sumgame tuples. If both subgames contain underscores, replace 
+    all other sumgames that are equivalent if underscores are removed.
 
-    for tup in children:
-        tup = tuple(sorted(tup, key=lambda s: (len(s), s)))
+    :param children: list of sumgame tuples
+    :returns result: children with all duplicated sumgames removed
+    '''
+    def is_equiv(sumgame1, sumgame2):
+        for g1, g2 in zip(sumgame1, sumgame2):
+            if not compare(g1, g2):
+                return False
+        return True
+    
+    def compare(main, g):
+        underscore_index = main.index("_")
+        if g.count("_") == 0:
+            return True
+        if g.index("_") == underscore_index:
+            return True
+        return False
 
-        # Normalize: remove underscores + sort the items
-        key = tuple(sorted(s.replace('_', '') for s in tup))
+    to_remove = set()
+    result = set()
+    for sumgame in children:
+        total_underscores = sum(s.count("_") for s in sumgame)
+        if total_underscores == 2:
+            result.add(sumgame)
+            for child in children:
+                if is_equiv(sumgame, child):
+                    to_remove.add(child)
 
-        # Count underscores in original tuple
-        underscore_count = sum(s.count('_') for s in tup)
-
-        # Keep only tuple with max underscore count for each group
-        if key not in groups or underscore_count > groups[key][1]:
-            groups[key] = (tup, underscore_count)
-
-    # Extract the best representative of each group
-    return {item for item, _ in groups.values()}
+    result.update(children - to_remove)
+    return result
 
 def simplify(children, symmetry_dict):
+    '''
+    Replaces each subgame with its symmetric representation, if smaller.
+
+    :param children: sumgame tuples
+    :param symmetry_dict: dictionary of all symmetric positions
+    :returns result: canonical symmetric representation
+    '''
     result = set()
     for child in children:
         new_child = []
@@ -82,21 +111,24 @@ def simplify(children, symmetry_dict):
         result.add(tuple(new_child))
     return result
 
-def reduce(s, term, lb, ub):
-    """Takes a string s and a term and removes the first occurrence of (term)^n for n > 0."""
-    lowerbound = lb #if (lb is None or lb >= 0) else len(s) + lb
-    upperbound = ub #if (ub is None or ub >= 0) else len(s) + ub
+def reduce(s, term, lowerbound, upperbound):
+    """
+    Takes a string s and a term and removes the first occurrence of 
+    (term)^n for n > 0, within provide bounds.
+
+    :param s: string
+    :param term: repeating term to remove
+    :param lb: index in string to start searching
+    :param up: index in string to stop searching 
+    """
     if upperbound == 0: upperbound = len(s)
     
     # TODO: catching the case where we try to simplify the position q?
     if not s or s == term:
         return s
-    #print(f"\nlower bound: {lowerbound}")
-    #print(f"upper bound: {upperbound}")
+
     substring = s[lowerbound: upperbound]
-    #print(f"s: {s}")
-    #print(f"substring: {substring}")
-    #print(f"{s[:lowerbound]} + {substring} + {s[upperbound:]}")
+
     # defines the pattern to match as a repeated occurrence of term
     pattern = f"({re.escape(term)})+"
     # finds the first instance of pattern in s
@@ -104,13 +136,10 @@ def reduce(s, term, lb, ub):
     if match:
         # all characters in s before the matched string
         prefix = s[:lowerbound] + substring[:match.start()]
-        #print(f"prefix: {prefix}")
         # all characters in s after the matched string
         suffix = substring[match.end():] + s[upperbound:]
-        #print(f"suffix: {suffix}")
         return f"{prefix}_{suffix}"
     else:
-        #print(f"no removal: {s}")
         return s
     
 def make_move(pattern, index):
@@ -142,7 +171,8 @@ def make_move(pattern, index):
     return [move_left, move_right]
 
 def main():
-    children = xxo_conjecture('xo_', 'xxo')
+    #children = xxo_conjecture('xo_', 'xxo')
+    children = clean({('_x', 'xxx'), ('_x', '_xxx'), ('x', '_xxx')})
     pp(children)
     #pp(clean(children['o']))
 
