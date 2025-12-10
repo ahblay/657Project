@@ -191,6 +191,15 @@ def find_symmetries_xxo(prefixes, suffixes, q):
 
 # returns a formatted symmetries list that does not identify symmetries
 def empty_symmetries(prefixes, suffixes, q):
+    '''
+    Given a list of prefixes, suffixes and repeating pattern q,
+    return a dummy formatted symmetries list, mapping positions to themselves.
+
+    :param prefixes: set of tuples of prefix patterns
+    :param suffixes: set of tuples of suffix patterns
+    :param q: tuple representing repeating pattern
+    :return result: list of lists of (prefix, suffix) tuples, where each internal list catalogues symmetric positions
+    '''
     patterns = list(product(prefixes, suffixes))
     result = []
     for pattern in patterns:
@@ -198,6 +207,13 @@ def empty_symmetries(prefixes, suffixes, q):
     return result
 
 def get_symmetries_dict(symmetries):
+    '''
+    Given a list of symmetric position pairs, return a dictionary mapping 
+    longer symmetries to their shorter pairs.
+
+    :param symmetries: list of lists of (prefix, suffix) tuples, where each internal list catalogues symmetric positions
+    :returns result: dictionary with keys and values corresponding to symmetric positions (e.g. {"_": "o_xx"})
+    '''
     result = {}
     for pair in symmetries:
         simple_pair = []
@@ -206,18 +222,12 @@ def get_symmetries_dict(symmetries):
         #sorted_pair = sorted(simple_pair, key=len)
         simple_pair.sort(key=lambda s: (len(s), s))
         result[simple_pair[1]] = simple_pair[0]
-    return result 
-
-def delete_symmetries(symmetries):
-    result = set()
-    for pair in symmetries:
-        simple_pair = []
-        for i in pair:
-            simple_pair.append("_".join("".join(inner) for inner in i))
-        result.add(min(sorted(simple_pair), key=len))
-    return result    
+    return result  
 
 def print_patterns(p):
+    '''
+    Pretty-printer for pairs of tuples representing prefixes and suffixes.
+    '''
     result = []
     for i in p:
         result.append("_".join("".join(inner) for inner in i))
@@ -225,16 +235,47 @@ def print_patterns(p):
     return
 
 def add_small_positions(game_dict, small_positions):
+    '''
+    Given a dictionary representing moves from one pattern to another, and a 
+    set of irregular small positions for each pattern, add positions corresponding 
+    to moves to each irregular position.
+
+    :param game_dict: nested dictionary with positional patterns as keys and subgames as values 
+    (e.g. {"_": {
+                "x": {
+                    ("o_x", "_xxx"), 
+                    ("_x", "x_")}, 
+                "o": {
+                    ("_", "_xo"), 
+                    ("_xx", "o_xo")}
+                }
+            })
+    :param small_positions: dictionary with positional patterns as keys, and small irregular
+    positions as values (e.g. {"o_x": ["ox", "oxxoxxox", "oxxoxxoxxoxxox"]})        
+    :param output: game_dict with small irregular positions included
+    (e.g. {"_": {
+                "x": {
+                    ("o_x", "_xxx"),
+                    ("ox", "_xxx"),
+                    ("oxxoxxox", "_xxx"),
+                    ("oxxoxxoxxoxxox", "_xxx"), 
+                    ("_x", "x_")}, 
+                "o": {
+                    ("_", "_xo"), 
+                    ("_xx", "o_xo")}
+                }
+            })
+    '''
     pieces = ["x", "o"]
     output = {}
     for k, v in game_dict.items():
         output[k] = {}
         for piece in pieces:
-            sumgames = v[piece]
+            sumgames = v[piece] # set of all positions resulting from a move by {piece}
             new_sumgames = set()
             for sumgame in sumgames:
                 new_sumgames.add(sumgame)
-                for idx in range(2):
+                for idx in range(2): # iterate through subgames and replace positional patterns with irregular small games
                     if "_" in sumgame[(idx + 1) % 2]:
                         subgame = sumgame[idx % 2]
                         base_cases = small_positions[subgame] if subgame in small_positions else []
@@ -244,12 +285,27 @@ def add_small_positions(game_dict, small_positions):
     return output
 
 def create_cgs_file(pattern_list, q, filename):
+    '''
+    Deprecated function for writing a .cgs file to calculate outcome 
+    classes for small games
+    '''
     clear_file(f"/Users/abel/CGScript/{filename}")
     for pattern in pattern_list:
         test_sequence = generate_test_sequence(pattern, q, 12)
         write_to_file(test_sequence, f"/Users/abel/CGScript/{filename}")
 
-def run(state, pattern, p, s, name, moves=False):
+def run(state, pattern, p, s, name=None, moves=False):
+    '''
+    Main function for calculating outcome class.
+
+    :param state: the starting position (e.g. "_")
+    :param pattern: the repeating pattern that "_" stands for (e.g. "xxo")
+    :param p: a set of prefixes that the position starts with (can be empty)
+    :param s: a set of suffixes that the position starts with (can be empty)
+    :param name: the name of the folder to save the output to (optional)
+    :param moves: flag to optionally load dictionary of moves (optional)
+    :returns value: the outcome class of the game
+    '''
     q = tuple(pattern)
     
     if moves:
@@ -259,14 +315,17 @@ def run(state, pattern, p, s, name, moves=False):
     else:
         prefixes, suffixes, small = generate_patterns(p, s, q)
 
+        # handle symmetries if input position is "xxo"
         if pattern == "xxo":
             symmetries = find_symmetries_xxo(prefixes, suffixes, q)
+        # otherwise use empty symmetries
         else:
             symmetries = empty_symmetries(prefixes, suffixes, q)
 
         symmetries_dict = get_symmetries_dict(symmetries)
         all_subgames = sorted(list(symmetries_dict.values()))
 
+        # build dictionary of moves from symmetries
         game_dict = {}
         for subgame in all_subgames:
             children = tree.find_moves(subgame, pattern)
@@ -279,16 +338,22 @@ def run(state, pattern, p, s, name, moves=False):
 
             game_dict[subgame] = {'x': tuple(x_simplified), 'o': tuple(o_simplified)}
 
+    # compute small game values automatically with SEGClobber
     base_cases, small = segclobber.compute_all_base_cases(all_subgames, 
                                                    ["".join(s) for s in small], 
                                                    pattern, 
                                                    10)
+    
+    # update game dictionary with small irregular games
     game_dict = add_small_positions(game_dict, small)
 
+    # call inductive search
     value, nodes = evaluate(state, game_dict, base_cases, 0, 0)
 
+    # periodically write status to file to log long runtimes
     write_status("result.txt", nodes, value)
 
+    # optionally save state space tree as a JSON file
     if name:
         folder = f"json/{name}"
         os.makedirs(folder, exist_ok=True)
