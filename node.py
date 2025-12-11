@@ -1,19 +1,27 @@
 class Node:
+    '''
+    Node class for each linear Clobber game state.
+    '''
     def __init__(self, state, value):
         self.state = state
         self.value = value
-        #self.player = player
-        self.left_children_x = []
-        self.right_children_x = []
-        self.left_children_o = []
-        self.right_children_o = []
+        self.left_children_x = [] # left subgames resulting from x moves
+        self.right_children_x = [] # right subgames resulting from x moves
+        self.left_children_o = [] # left subgames rsulting from o moves
+        self.right_children_o = [] # right subgames resulting from o moves
     
     def merge_children(self):
+        '''
+        Combine child nodes into pairs corresponding to sumgames.
+        '''
         x_moves = zip(self.left_children_x, self.right_children_x)
         o_moves = zip(self.left_children_o, self.right_children_o)
         return {"LEFT": list(x_moves), "RIGHT": list(o_moves)}
     
     def to_json(self, depth, depth_limit=None):
+        '''
+        Write the game tree to a JSON file. Depth can be limited for huge state spaces.
+        '''
         children = {}
         if depth_limit and depth >= depth_limit:
             return {
@@ -32,15 +40,3 @@ class Node:
             "value": self.value,
             "children": children
         }
-
-    """
-    def __repr__(self, level=0):
-        indent = "  " * level
-        s = f"{indent}{self.state} : {self.value}\n"
-        for child in self.merge_children():
-            child_indent = "  " * (level + 1)
-            s += f"{child_indent}{child[0].state}+{child[1].state}\n"
-            for subgame in child:
-                s += subgame.__repr__(level + 2)
-        return s
-    """

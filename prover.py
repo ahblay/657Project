@@ -6,14 +6,21 @@ from itertools import product
 from functools import lru_cache
 
 def proof_tree(state, game_dict, base_cases, path_visited=None):
+    '''
+    Compute the actual tree searched by the solver.
 
-    if path_visited is None:
-        path_visited = set()
+    :param state: starting position (e.g. "_")
+    :param game_dict: dictionary of all positions and their children after all possible x and o-moves
+    :param base_cases: dictionary of all values of small positions, and inductive hypotheses for patterns
+    :returns node: root node of search tree
+    '''
+    if path_visited is None: 
+        path_visited = set() # this will track whether we have already visited a node on our search
 
-    if "_" not in state:
+    if "_" not in state: # if state is a small position, get its value
         return Node(state, base_cases[state])
 
-    # apply inductive hypothesis
+    # apply inductive hypothesis--we have already seen this node on our current path
     if state in path_visited:
         return Node(state, base_cases[state])
 
@@ -21,22 +28,24 @@ def proof_tree(state, game_dict, base_cases, path_visited=None):
     path_visited.add(state)
 
     # recursively evaluate all options
-    left_children_x = []
-    right_children_x = []
-    x_values = set()
+    left_children_x = [] # child nodes
+    right_children_x = [] # child nodes
+    x_values = set() # all outcome classes resulting from x-moves
+
+    # iterate through all subgames resulting from an x-move
     for sub1, sub2 in game_dict[state].get('x', []):
-        child1 = proof_tree(sub1, game_dict, base_cases, path_visited)
+        child1 = proof_tree(sub1, game_dict, base_cases, path_visited) 
         child2 = proof_tree(sub2, game_dict, base_cases, path_visited)
-        result = outcome_add_cached(child1.value, child2.value)
+        result = outcome_add_cached(child1.value, child2.value) # compute the sum of outcome classes
         x_values.add(result)
-        left_children_x.append(child1)
+        left_children_x.append(child1) 
         right_children_x.append(child2)
-        if result in ["L", "P"]:
+        if result in ["L", "P"]: # if we find a winning move, stop searching
             break
 
-    left_children_o = []
-    right_children_o = []
-    o_values = set()
+    left_children_o = [] # child nodes
+    right_children_o = [] # child nodes
+    o_values = set() # all outcome classes resulting from o-moves
     for sub1, sub2 in game_dict[state].get('o', []):
         child1 = proof_tree(sub1, game_dict, base_cases, path_visited)
         child2 = proof_tree(sub2, game_dict, base_cases, path_visited)
@@ -47,18 +56,21 @@ def proof_tree(state, game_dict, base_cases, path_visited=None):
         if result in ["R", "P"]:
             break
 
-    # compute outcoem class
+    # since L + N in {L, N}, we compute outcomes assuming each possibility
     values = []
-    for expanded_x_values in expand_outcomes_cached(tuple(x_values)):
+    # expand all possible outcome combinations
+    for expanded_x_values in expand_outcomes_cached(tuple(x_values)): 
         for expanded_o_values in expand_outcomes_cached(tuple(o_values)):
             value = compute_value_cached(tuple(expanded_x_values), tuple(expanded_o_values))
             values.append(value)
 
+    # if all combinations lead to the same outcome, return that outcome
     if len(set(values)) == 1:
         value = values[0]
     else:
-        value = "U"
+        value = "U" # otherwise, return unknown
 
+    # add children to node
     node = Node(state, value)
     node.left_children_x = left_children_x
     node.right_children_x = right_children_x
@@ -70,9 +82,19 @@ def proof_tree(state, game_dict, base_cases, path_visited=None):
     return node
 
 def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
+    '''
+    Compute the outcome class.
+
+    :param state: starting position (e.g. "_")
+    :param game_dict: dictionary of all positions and their children after all possible x and o-moves
+    :param base_cases: dictionary of all values of small positions, and inductive hypotheses for patterns
+    :param depth: integer tracking the maximum depth
+    :param nodes: total number of nodes visited
+    :returns value: outcome class of position
+    '''
     nodes += 1
     if nodes % 10000000 == 0:
-        write_status("result.txt", nodes)
+        write_status("result.txt", nodes) # log status to file
 
     if path_visited is None:
         path_visited = {}
@@ -80,7 +102,7 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
     if "_" not in state:
         return base_cases[state], nodes
 
-    # apply inductive hypothesis
+    # if we visited this node, apply inductive hypothesis
     if state in path_visited:
         depth_diff = depth - path_visited[state]
         #print(f"state: {state}")
@@ -90,7 +112,7 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
     # mark this node as visited along the current path
     path_visited[state] = depth
 
-    # recursively evaluate all options
+    # recursively evaluate all options (same functionality as above)
     x_values = set()
     for sub1, sub2 in game_dict[state].get('x', []):
         val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
@@ -109,7 +131,7 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
         if result in ["R", "P"]:
             break
 
-    # compute outcome class
+    # compute outcome class (same as above)
     values = []
     for expanded_x_values in expand_outcomes_cached(tuple(x_values)):
         for expanded_o_values in expand_outcomes_cached(tuple(o_values)):
@@ -125,6 +147,7 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
 
     return value, nodes
 
+# caching specific, frequently used function calls to speed up runtime of evaluate()
 @lru_cache(None)
 def outcome_add_cached(a, b):
     return outcome_add(a, b)
@@ -139,10 +162,18 @@ def compute_value_cached(left, right):
     return compute_value(position)
 
 def expand_outcomes(outcome_list):
+    '''
+    Given a list of outcomes, and possible outcomes (e.g. [L, N]), compute all possible 
+    lists of outcomes.
+    '''
     normalized_list = [list(outcome) if type(outcome) == tuple else [outcome] for outcome in outcome_list]
     return [list(outcome) for outcome in product(*normalized_list)]
 
 def compute_value(position):
+    '''
+    Determine the outcome class of a game given the outcome classes of 
+    all elements in its left and right sets.
+    '''
     if "L" in position["left"] or "P" in position["left"]:
         left_can_win = True
     elif "U" in position["left"]:
@@ -156,7 +187,7 @@ def compute_value(position):
     else:
         right_can_win = False
 
-    
+    # uncomment this code for more specific handling of outcome evaluation
     '''
     if left_can_win and right_can_win is None:
         return "L"
@@ -176,6 +207,7 @@ def compute_value(position):
     else:
         return "U"
 
+# DEPECRATED UNUSED FUNCTION
 # best outcome depends on player to move
 def best_outcome(a, b, player):
     if player == "x":
@@ -187,10 +219,11 @@ def best_outcome(a, b, player):
     else:
         return b
 
-# L, N, P, R
-def outcome_add(a, b):    
+def outcome_add(a, b):  
+    '''
+    Compute the sum of two outcome classes.
+    '''  
     summands = sorted([a, b])
-    #print(summands)
     if summands == ["L", "N"]:
         return tuple(summands)
     if summands == ["N", "R"]:
@@ -216,6 +249,9 @@ def outcome_add(a, b):
         return "U"
 
 def write_status(filename, nodes, outcome="incomplete"):
+    '''
+    Log eval status to file.
+    '''
     with open(filename, "w") as f:
         f.write(f"nodes visited: {nodes}\n")
         f.write(f"outcome: {outcome}")

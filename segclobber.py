@@ -4,6 +4,9 @@ from pprint import pp
 import os
 
 def segclobber(position, player):
+    '''
+    Call SEGClobber binary.
+    '''
     binary_path = os.environ.get(
         "SEGCLOBBER_BINARY",
         str(Path(__file__).parent / "bin" / "segclobber")
@@ -24,7 +27,11 @@ def segclobber(position, player):
     return winning_player
 
 def get_outcome_class(position):
-    if position == "":
+    '''
+    Compute the outcome class of a position by determining winning player if
+    Left moves first and if Right moves first.
+    '''
+    if position == "": # catch the empty game
         return "P"
     position = position.replace("x", "B").replace("o", "W")
     left_can_win = True if segclobber(position, "B") == "B" else False
@@ -40,6 +47,9 @@ def get_outcome_class(position):
         return "P"
 
 def compute_base_cases(pattern, q, length):
+    '''
+    Compute outcome class of small games with up to {length} copies of q.
+    '''
     prefix, suffix = pattern.split("_")
     result = {}
     for i in range(length):
@@ -48,6 +58,10 @@ def compute_base_cases(pattern, q, length):
     return result
 
 def evaluate_base_cases(pattern, base_cases):
+    '''
+    Remove any small game that has the same outcome class as 
+    the inductive hypothesis for its corresponding pattern.
+    '''
     result = {}
     games = sorted(base_cases.keys(), key=len)
     for g in games:
@@ -59,13 +73,16 @@ def evaluate_base_cases(pattern, base_cases):
     return result
 
 def compute_all_base_cases(patterns, small_games, q, amount):
+    '''
+    Compute all base case outcome classes for a patterns resulting 
+    from playing in a given game.
+    '''
     result = {}
     small = {}
     for pattern in patterns:
         small[pattern] = []
         base_cases = compute_base_cases(pattern, q, amount)
         simplified_base_cases = evaluate_base_cases(pattern, base_cases)
-        #result.update(simplified_base_cases)
         inductive_hypothesis = simplified_base_cases[pattern]
         for game, outcome in simplified_base_cases.items():
             if game == pattern:

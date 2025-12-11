@@ -1,3 +1,6 @@
+# functions for generating CGScripts (currently unused)
+# could be necessary for computing game values
+
 def generate_test_sequence(pattern, q, length):
     prefix, suffix = pattern.split("_")
     result = []

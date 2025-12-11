@@ -136,8 +136,10 @@ def reduce(s, term, lowerbound, upperbound):
         return s
     
 def make_move(pattern, index):
-    """Given a pattern string representing a game and a piece index to move, supply the games 
-    resulting from moving that piece left and right."""
+    """
+    Given a pattern string representing a game and a piece index to move, supply the games 
+    resulting from moving that piece left and right.
+    """
     if index not in range(len(pattern)):
         return [None, None], None
     # piece to move
