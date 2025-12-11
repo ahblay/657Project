@@ -11,7 +11,7 @@ You will need a compiled binary of **SEGClobber**. This project contains the pre
 
    ```bash
    ./startup.sh
-   export SEGCLOBBER_BINARY=$(pwd)/solver/src/segclobber
+   export SEGCLOBBER_BINARY=$(pwd)/bin/segclobber
    ```
 
    This will save the path to the pre-compiled SEGClobber binary as an environment variable.
