@@ -15,13 +15,14 @@ def main():
     parser.add_argument("--q", default="xxo", help="Repeating pattern")
     parser.add_argument("--prefixes", nargs="+", default=[], help="Set of prefixes")
     parser.add_argument("--suffixes", nargs="+", default=[], help="Set of suffixes")
-    parser.add_argument("--json", type=str, metavar="FOLDER", help="Produce JSON output in the given folder"
-)
+    parser.add_argument("--json", type=str, metavar="FOLDER", help="Produce JSON output in the given folder")
+    parser.add_argument("--conj", default=False, help="Test conjecture that x can win by making leftmost move")
 
     args = parser.parse_args()
 
-    outcome = generator.run(args.state, args.q, parse(args.prefixes), parse(args.suffixes), args.json)
-    print(outcome)
+    outcome, nodes = generator.run(args.state, args.q, parse(args.prefixes), parse(args.suffixes), args.json, conj=args.conj)
+    print(f"Outcome class: {outcome}")
+    print(f"Nodes visited: {nodes}")
 
 if __name__ == "__main__":
     main()

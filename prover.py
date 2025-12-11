@@ -72,10 +72,7 @@ def proof_tree(state, game_dict, base_cases, path_visited=None):
 def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
     nodes += 1
     if nodes % 10000000 == 0:
-        print(nodes)
         write_status("result.txt", nodes)
-    #if nodes > 100000000:
-    #    return "U", nodes
 
     if path_visited is None:
         path_visited = {}
@@ -112,7 +109,7 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
         if result in ["R", "P"]:
             break
 
-    # compute outcoem class
+    # compute outcome class
     values = []
     for expanded_x_values in expand_outcomes_cached(tuple(x_values)):
         for expanded_o_values in expand_outcomes_cached(tuple(o_values)):
@@ -142,7 +139,7 @@ def compute_value_cached(left, right):
     return compute_value(position)
 
 def expand_outcomes(outcome_list):
-    normalized_list = [outcome if type(outcome) == list else [outcome] for outcome in outcome_list]
+    normalized_list = [list(outcome) if type(outcome) == tuple else [outcome] for outcome in outcome_list]
     return [list(outcome) for outcome in product(*normalized_list)]
 
 def compute_value(position):
@@ -159,6 +156,13 @@ def compute_value(position):
     else:
         right_can_win = False
 
+    
+    '''
+    if left_can_win and right_can_win is None:
+        return "L"
+    if left_can_win is None and right_can_win:
+        return "N"
+    '''
     if left_can_win is None or right_can_win is None:
         return "U"
     if left_can_win and right_can_win:
@@ -218,15 +222,5 @@ def write_status(filename, nodes, outcome="incomplete"):
 
 
 if __name__ == "__main__":
-    game_data = {
-        '_': {
-            'x': {('_x', 'x_'), ('o_x', '_xxx')}, 
-            'o': {('_', '_xo'), ('_xo','xxo'), ('_xx', 'o_xo')}}, 
-        'o_o': {
-            'x': {('x_', 'oo_x'), ('x', 'oo_x'), ('o_x', 'x_o')}, 
-            'o': {('_', 'oo_xo'), ('_o', 'o_xo'), ('', 'oo_xo')}}, 
-        'x_': {
-            'x': {('o_x', 'x_xxx'), ('x_', 'x_x')}, 
-            'o': {('xxo', 'x_xo'), ('_', 'x_xo'), ('_xxx', 'o_xo')}}
-        }
+    print(outcome_add("P", "N"))
     

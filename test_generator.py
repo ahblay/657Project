@@ -119,5 +119,5 @@ def test_find_symmetries_xxo(prefixes, suffixes, q, expected):
 def test_run(state, pattern, prefixes, suffixes, expected):
     prefixes = {tuple(p) for p in prefixes}
     suffixes = {tuple(s) for s in suffixes}
-    assert generator.run(state, pattern, prefixes, suffixes, None) == expected 
+    assert generator.run(state, pattern, prefixes, suffixes, None)[0] == expected 
   

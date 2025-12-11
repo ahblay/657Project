@@ -293,7 +293,7 @@ def create_cgs_file(pattern_list, q, filename):
         test_sequence = generate_test_sequence(pattern, q, 12)
         write_to_file(test_sequence, f"/Users/abel/CGScript/{filename}")
 
-def run(state, pattern, p, s, name=None, moves=False):
+def run(state, pattern, p, s, name=None, moves=False, conj=False):
     '''
     Main function for calculating outcome class.
 
@@ -334,17 +334,20 @@ def run(state, pattern, p, s, name=None, moves=False):
             o_cleaned = tree.clean(children['o'])
             o_simplified = tree.simplify(o_cleaned, symmetries_dict)
 
-            xxo_conj_simplified = tree.simplify(tree.xxo_conjecture(subgame, pattern), symmetries_dict)
+            if conj:
+                xxo_conj_simplified = tree.simplify(tree.xxo_conjecture(subgame, pattern), symmetries_dict)
+                game_dict[subgame] = {'x': tuple(xxo_conj_simplified), 'o': tuple(o_simplified)}
 
-            game_dict[subgame] = {'x': tuple(x_simplified), 'o': tuple(o_simplified)}
+            else:
+                game_dict[subgame] = {'x': tuple(x_simplified), 'o': tuple(o_simplified)}
    
     # compute small game values automatically with SEGClobber
     print("Computing base cases with SEGClobber...")
     base_cases, small = segclobber.compute_all_base_cases(all_subgames, 
                                                    ["".join(s) for s in small], 
                                                    pattern, 
-                                                   10)
-    
+                                                   14)
+        
     # update game dictionary with small irregular games
     game_dict = add_small_positions(game_dict, small)
 
@@ -362,9 +365,9 @@ def run(state, pattern, p, s, name=None, moves=False):
         os.makedirs(folder, exist_ok=True)
         proof_node = proof_tree(state, game_dict, base_cases)
         with open(f'{folder}/{name}_proof_node.json', 'w', encoding='utf-8') as f:
-            json.dump(proof_node.to_json(0, 3), f, ensure_ascii=False, indent=4)
+            json.dump(proof_node.to_json(0, 10), f, ensure_ascii=False, indent=4)
         print(f"Tree saved to {folder}/{name}_proof_node.json")
-    return value
+    return value, nodes
 
 if __name__ == "__main__":
     test = ["xxoo_"]

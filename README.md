@@ -11,8 +11,11 @@ You will need a compiled binary of **SEGClobber**. This project contains the pre
 
    ```bash
    ./startup.sh
+   ```
+   ```bash
    export SEGCLOBBER_BINARY=$(pwd)/bin/segclobber
    ```
+   
 
    This will save the path to the pre-compiled SEGClobber binary as an environment variable.
 
@@ -23,6 +26,8 @@ You will need a compiled binary of **SEGClobber**. This project contains the pre
 
    ```bash
    ./startup.sh compile
+   ```
+   ```bash
    export SEGCLOBBER_BINARY=$(pwd)/solver/src/segclobber
    ```
 
@@ -43,6 +48,7 @@ The solver is executed using `python3 run.py` with the following flags:
 * `--prefixes` : A variable number of prefixes to prepend to the repeating pattern.
 * `--suffixes` : A variable number of suffixes to append to the repeating pattern.
 * `--json` : Name of the directory to store the output game tree.
+* `--conj` : If ```True```, limits x-moves to leftmost move, capturing to the right.
 
 ### Example
 
@@ -97,3 +103,12 @@ Try running the following commands and copying the JSON output to [https://jsont
 
    This will solve the game `xoo(x)^nox = xxox...xox`.
    **Expected outcome:** `N` (next player to move wins)
+
+5. **Test 5**
+
+   ```bash
+   python3 run.py --conj True
+   ```
+
+   This will attempt to solve the game `(xxo)^n`, assuming x only makes their leftmost move, capturing to the right.
+   **Expected outcome:** `U` (unknown outcome class--see paper)
