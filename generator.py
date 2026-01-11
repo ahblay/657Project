@@ -283,7 +283,7 @@ def add_small_positions(game_dict, small_positions):
                         base_cases = small_positions[subgame] if subgame in small_positions else []
                         for position in base_cases:
                             new_sumgames.add((sumgame[(idx + 1) % 2], position))
-            output[k][piece] = tuple(new_sumgames)
+            output[k][piece] = tuple(sorted(new_sumgames))
     return output
 
 def create_cgs_file(pattern_list, q, filename):

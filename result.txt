@@ -1,2 +1,2 @@
-nodes visited: 1150000000
-outcome: incomplete
+nodes visited: 469
+outcome: P
