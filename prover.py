@@ -81,7 +81,7 @@ def proof_tree(state, game_dict, base_cases, path_visited=None):
 
     return node
 
-def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
+def evaluate(state, game_dict, base_cases, depth, nodes, good_moves, path_visited=None):
     '''
     Compute the outcome class.
 
@@ -94,6 +94,8 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
     '''
     nodes += 1
     if nodes % 10000000 == 0:
+        print(nodes)
+        pp(good_moves)
         write_status("result.txt", nodes) # log status to file
 
     if path_visited is None:
@@ -114,21 +116,29 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
 
     # recursively evaluate all options (same functionality as above)
     x_values = set()
-    for sub1, sub2 in game_dict[state].get('x', []):
-        val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
-        val2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
+    if (state, 'x') not in good_moves.keys():
+        good_moves[(state, 'x')] = set()
+    sorted_subgames = sort_subgames(game_dict[state].get('x', []), good_moves[(state, 'x')])
+    for sub1, sub2 in sorted_subgames:
+        val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, good_moves, path_visited)
+        val2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, good_moves, path_visited)
         result = outcome_add_cached(val1, val2)
         x_values.add(result)
         if result in ["L", "P"]:
+            good_moves[(state, 'x')].add((sub1, sub2))
             break
 
     o_values = set()
-    for sub1, sub2 in game_dict[state].get('o', []):
-        val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, path_visited)
-        val2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, path_visited)
+    if (state, 'o') not in good_moves:
+        good_moves[(state, 'o')] = set()
+    sorted_subgames = sort_subgames(game_dict[state].get('o', []), good_moves[(state, 'o')])
+    for sub1, sub2 in sorted_subgames:
+        val1, nodes = evaluate(sub1, game_dict, base_cases, depth+1, nodes, good_moves, path_visited)
+        val2, nodes = evaluate(sub2, game_dict, base_cases, depth+1, nodes, good_moves, path_visited)
         result = outcome_add_cached(val1, val2)
         o_values.add(result)
         if result in ["R", "P"]:
+            good_moves[(state, 'o')].add((sub1, sub2))
             break
 
     # compute outcome class (same as above)
@@ -146,6 +156,11 @@ def evaluate(state, game_dict, base_cases, depth, nodes, path_visited=None):
     path_visited.pop(state)
 
     return value, nodes
+
+def sort_subgames(all_moves, good_moves):
+    all_moves = list(all_moves)
+    all_moves.sort(key=lambda t: t not in good_moves)
+    return all_moves
 
 # caching specific, frequently used function calls to speed up runtime of evaluate()
 @lru_cache(None)

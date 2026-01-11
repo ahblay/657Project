@@ -1,0 +1,55 @@
+{
+    "label": "o_o",
+    "value": "L",
+    "children": {
+        "LEFT: x + o_": [
+            {
+                "label": "x",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "o_",
+                "value": "L",
+                "children": {
+                    "LEFT: _ + x": [
+                        {
+                            "label": "_",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "x",
+                            "value": "P",
+                            "children": {}
+                        }
+                    ],
+                    "RIGHT:  + o_": [
+                        {
+                            "label": "",
+                            "value": "P",
+                            "children": {}
+                        },
+                        {
+                            "label": "o_",
+                            "value": "L",
+                            "children": {}
+                        }
+                    ]
+                }
+            }
+        ],
+        "RIGHT:  + o_o": [
+            {
+                "label": "",
+                "value": "P",
+                "children": {}
+            },
+            {
+                "label": "o_o",
+                "value": "L",
+                "children": {}
+            }
+        ]
+    }
+}

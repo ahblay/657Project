@@ -102,4 +102,4 @@ if __name__ == "__main__":
     #pp(bc)    
     #pp(sbc)
 
-    print(get_outcome_class("xooxxxxxxxxxxxxxxxxxxxxxxxxox"))
+    print(get_outcome_class("ooxxxxxxxxxxo"))

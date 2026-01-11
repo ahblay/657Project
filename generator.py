@@ -144,6 +144,9 @@ def generate_patterns(prefixes, suffixes, q):
     while True:
         p = get_prefixes(prefixes, q)
         s = get_suffixes(suffixes, q)
+        print(prefixes)
+        print(suffixes)
+        print("*" * 50)
 
         if p == prefixes and s == suffixes:
             break
@@ -315,6 +318,8 @@ def run(state, pattern, p, s, name=None, moves=False, conj=False):
     else:
         prefixes, suffixes, small = generate_patterns(p, s, q)
 
+        print_set(small)
+
         # handle symmetries if input position is "xxo"
         if pattern == "xxo":
             symmetries = find_symmetries_xxo(prefixes, suffixes, q)
@@ -347,13 +352,17 @@ def run(state, pattern, p, s, name=None, moves=False, conj=False):
                                                    ["".join(s) for s in small], 
                                                    pattern, 
                                                    14)
+    pp(base_cases)
+    pp(small)
         
     # update game dictionary with small irregular games
     game_dict = add_small_positions(game_dict, small)
 
+    pp(game_dict)
+
     # call inductive search
     print("Evaluating outcome class...")
-    value, nodes = evaluate(state, game_dict, base_cases, 0, 0)
+    value, nodes = evaluate(state, game_dict, base_cases, 0, 0, {('_', 'x'): {('o_x', '_xxx')}, ('o_x', 'x'): {('x_', 'xo_x')}})
 
     # periodically write status to file to log long runtimes
     write_status("result.txt", nodes, value)
