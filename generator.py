@@ -236,6 +236,15 @@ def print_patterns(p):
     print(result)
     return
 
+def sort_key(t):
+    '''
+    Function to handle sorting of sumgames. Sumgames that contain a short subgame are sorted first.
+    (In other words, if a sumgame contains a small subgame, search that sumgame first.)
+    '''
+    left, right = t
+    has_plain = ("_" not in left) or ("_" not in right)
+    return (0 if has_plain else 1, left, right)
+
 def add_small_positions(game_dict, small_positions):
     '''
     Given a dictionary representing moves from one pattern to another, and a 
@@ -283,7 +292,7 @@ def add_small_positions(game_dict, small_positions):
                         base_cases = small_positions[subgame] if subgame in small_positions else []
                         for position in base_cases:
                             new_sumgames.add((sumgame[(idx + 1) % 2], position))
-            output[k][piece] = tuple(sorted(new_sumgames))
+            output[k][piece] = tuple(sorted(new_sumgames, key=sort_key))
     return output
 
 def create_cgs_file(pattern_list, q, filename):
@@ -362,7 +371,7 @@ def run(state, pattern, p, s, name=None, moves=False, conj=False):
 
     # call inductive search
     print("Evaluating outcome class...")
-    value, nodes = evaluate(state, game_dict, base_cases, 0, 0, {('_', 'x'): {('o_x', '_xxx')}, ('o_x', 'x'): {('x_', 'xo_x')}})
+    value, nodes = evaluate(state, game_dict, base_cases, 0, 0, {})
 
     # periodically write status to file to log long runtimes
     write_status("result.txt", nodes, value)
